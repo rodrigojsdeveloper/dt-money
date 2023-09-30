@@ -32,7 +32,7 @@ const Button = ({
         background ? background : "bg-color-primary-1"
       } border border-solid border-color-primary-1 font-bold text-sm ${
         color ? color : "text-white"
-      } rounded-def ${
+      } rounded-def p-3 ${
         hoverBackground ? hoverBackground : "hover:bg-color-primary-2"
       } ${hoverBorder ? hoverBorder : ""} ${active ? active : ""}`}
     >

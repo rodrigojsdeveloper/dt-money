@@ -31,16 +31,21 @@ const config: Config = {
       maxWidth: {
         "147": "147px",
         "152": "152px",
+        "352": "352px",
         "1119": "1119.8px",
         "1440": "1440px",
       },
       height: {
         "50": "50px",
         "54": "54px",
+        "137": "137px",
         "212": "212px",
       },
       borderRadius: {
         "def": "4px",
+      },
+      fontSize: {
+        "32": "32px",
       },
     },
   },
