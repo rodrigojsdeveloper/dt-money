@@ -2,7 +2,7 @@ import { Card } from "./Card";
 
 const Navigation = () => {
   return (
-    <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 m-68 mx-auto overflow-auto">
+    <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 mt-82 mx-auto overflow-auto">
       <Card title="Entradas" value="17.400,00">
         <svg
           xmlns="http://www.w3.org/2000/svg"

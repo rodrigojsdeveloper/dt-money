@@ -29,6 +29,7 @@ const config: Config = {
         red: "#F75A68",
       },
       maxWidth: {
+        "130": "130px",
         "147": "147px",
         "152": "152px",
         "352": "352px",
@@ -39,9 +40,11 @@ const config: Config = {
         "280": "280px",
       },
       height: {
+        "38": "38px",
         "50": "50px",
         "54": "54px",
         "137": "137px",
+        "150": "150px",
         "212": "212px",
       },
       borderRadius: {
@@ -51,7 +54,7 @@ const config: Config = {
         "32": "32px",
       },
       margin: {
-        "68": "-68.5px",
+        "82": "-82px",
       },
     },
   },

@@ -29,6 +29,8 @@
   --color-white: #ffffff;
 
   --color-red: #f75a68;
+
+  --transparent: transparent;
 }
 
 body {
@@ -44,4 +46,18 @@ a {
 
 a {
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5px;
+  background-color: var(--color-grey-3);
 }
