@@ -35,6 +35,9 @@ const config: Config = {
         "1119": "1119.8px",
         "1440": "1440px",
       },
+      minWidth: {
+        "280": "280px",
+      },
       height: {
         "50": "50px",
         "54": "54px",
@@ -46,6 +49,9 @@ const config: Config = {
       },
       fontSize: {
         "32": "32px",
+      },
+      margin: {
+        "68": "-68.5px",
       },
     },
   },

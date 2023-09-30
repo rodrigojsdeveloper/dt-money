@@ -3,7 +3,7 @@ import { Button } from "./Button";
 const Header = () => {
   return (
     <header className="w-full max-w-1440 h-212 flex flex-row justify-center bg-grey-1">
-      <div className="w-full max-w-1119 flex flex-row justify-between mt-10">
+      <div className="w-full max-w-1119 flex flex-row justify-between mt-10 px-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="173"
