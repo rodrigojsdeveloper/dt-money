@@ -6,6 +6,9 @@ interface IButtonProps {
   height?: "h-54";
   background?: "bg-grey-2";
   color?: "text-color-primary-1";
+  hoverBackground?: "hover:bg-color-primary-3";
+  hoverBorder?: "hover:border-color-primary-2";
+  active?: "active:bg-color-primary-4";
 }
 
 const Button = ({
@@ -14,8 +17,11 @@ const Button = ({
   type,
   maxWidth,
   height,
-  background,
   color,
+  background,
+  hoverBackground,
+  hoverBorder,
+  active,
 }: IButtonProps) => {
   return (
     <button
@@ -26,7 +32,9 @@ const Button = ({
         background ? background : "bg-color-primary-1"
       } border border-solid border-color-primary-1 font-bold text-sm ${
         color ? color : "text-white"
-      } rounded-def`}
+      } rounded-def ${
+        hoverBackground ? hoverBackground : "hover:bg-color-primary-2"
+      } ${hoverBorder ? hoverBorder : ""} ${active ? active : ""}`}
     >
       {isSearch ? (
         <svg

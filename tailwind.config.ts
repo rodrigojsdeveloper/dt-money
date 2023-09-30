@@ -12,6 +12,8 @@ const config: Config = {
         "color-primary": {
           "1": "#00875F",
           "2": "#015F43",
+          "3": "rgb(0, 135, 95, 0.06)",
+          "4": "rgb(0, 135, 95, 0.16)",
         },
         grey: {
           "1": "#121214",
@@ -29,10 +31,13 @@ const config: Config = {
       maxWidth: {
         "147": "147px",
         "152": "152px",
+        "1119": "1119.8px",
+        "1440": "1440px",
       },
       height: {
         "50": "50px",
         "54": "54px",
+        "212": "212px",
       },
       borderRadius: {
         "def": "4px",
