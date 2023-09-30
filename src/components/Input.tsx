@@ -1,7 +1,7 @@
 interface InputProps {
   placeholder: string;
   margin?: "mr-4";
-  marginMedia?: "max-sm:mr-2.5";
+  marginMedia?: "max-sm:mr-2";
 }
 
 const Input = ({ placeholder, margin, marginMedia }: InputProps) => {

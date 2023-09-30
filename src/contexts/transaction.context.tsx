@@ -13,8 +13,15 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
     {
       id: "1",
       title: "Desenvolvedor",
-      category: "Venda",
+      category: "Alimentação",
       value: 1000,
+      created_at: new Date(),
+    },
+    {
+      id: "2",
+      title: "Desenvolvedor de sites",
+      category: "Venda",
+      value: 10000,
       created_at: new Date(),
     },
   ]);

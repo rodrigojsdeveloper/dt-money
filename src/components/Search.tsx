@@ -1,13 +1,32 @@
+"use client";
+import { TransactionContext } from "@/contexts/transaction.context";
+import { useContext } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
 const Search = () => {
+  const { transactions } = useContext(TransactionContext);
+
+  const transactionsLength = transactions.length;
+
   return (
-    <div className="w-full max-w-1119 flex flex-row justify-between items-center mt-16 mb-6 mx-auto">
-      <div className="w-full flex flex-row justify-between items-center mx-6">
+    <div className="w-full max-w-1119 flex flex-col mt-16 mb-6 mx-auto max-sm:mb-2.5">
+      {transactionsLength > 0 ? (
+        <div className="w-full flex flex-row justify-between items-center mb-2 px-6 sm:hidden">
+          <p className="font-normal text-lg text-grey-7">Transações</p>
+
+          <span className="font-normal text-base text-grey-5">
+            {transactionsLength > 1
+              ? `${transactionsLength} itens`
+              : `${transactionsLength} item`}
+          </span>
+        </div>
+      ) : null}
+
+      <div className="w-full flex flex-row justify-between items-center px-6">
         <Input
           margin="mr-4"
-          marginMedia="max-sm:mr-2.5"
+          marginMedia="max-sm:mr-2"
           placeholder="Busque uma transação"
         />
         <Button
