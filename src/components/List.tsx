@@ -35,6 +35,8 @@ const List = () => {
     currentPageSpans.push(i);
   }
 
+  console.log(totalPages);
+
   return (
     <div>
       <menu className="w-full max-w-1119 px-6 mx-auto">
@@ -100,7 +102,7 @@ const List = () => {
           </span>
         ))}
 
-        {currentPage !== totalPages ? (
+        {currentPage < totalPages ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
