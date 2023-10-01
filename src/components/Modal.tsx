@@ -4,8 +4,8 @@ import { Input } from "./Input";
 
 const Modal = ({ setModal }: IModal) => {
   return (
-    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default">
-      <div className="w-full flex justify-end">
+    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5">
+      <div className="w-full max-w-439 flex justify-end m-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -30,10 +30,12 @@ const Modal = ({ setModal }: IModal) => {
         </svg>
       </div>
 
-      <form>
-        <h2 className="font-bold text-2xl text-grey-8 mb-8">Nova transação</h2>
+      <form className="w-full max-w-439 m-auto">
+        <h2 className="font-bold text-2xl text-grey-8 mb-8 max-sm:mb-5">
+          Nova transação
+        </h2>
 
-        <div className="w-full h-194 flex flex-col justify-between">
+        <div className="w-full h-194 flex flex-col justify-between max-sm:h-186">
           <Input placeholder="Descrição" />
           <Input placeholder="Preço" type="number" />
           <Input placeholder="Categoria" />
@@ -108,7 +110,7 @@ const Modal = ({ setModal }: IModal) => {
           </button>
         </div>
 
-        <Button text="Cadastrar" />
+        <Button text="Cadastrar" type="submit" />
       </form>
     </div>
   );
