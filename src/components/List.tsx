@@ -5,9 +5,6 @@ import { Transaction } from "./Transaction";
 
 const List = () => {
   const {
-    transactions,
-    disabledNextPage,
-    disabledPreviousPage,
     handleNextPage,
     handlePreviousPage,
     setDisabledNextPage,
@@ -15,16 +12,19 @@ const List = () => {
     currentPage,
     transactionsPerPage,
     paginatedTransactions,
+    filteredTransactions,
   } = useContext(TransactionContext);
 
   useEffect(() => {
     setDisabledPreviousPage(currentPage === 1);
     setDisabledNextPage(
-      currentPage * transactionsPerPage >= transactions.length
+      currentPage * transactionsPerPage >= filteredTransactions.length
     );
-  }, [currentPage, transactions]);
+  }, [currentPage, filteredTransactions]);
 
-  const totalPages = Math.ceil(transactions.length / transactionsPerPage);
+  const totalPages = Math.ceil(
+    filteredTransactions.length / transactionsPerPage
+  );
 
   const currentPageSpans = [];
   for (let i = 1; i <= totalPages; i++) {

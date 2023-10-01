@@ -28,6 +28,8 @@ export interface ITransactionContextData {
   total: number;
   totalEntries: number;
   totalExits: number;
+  handleSearchTransactions: (description: string) => void;
+  filteredTransactions: Array<ITransactionProps>;
 }
 
 export interface IChildren {

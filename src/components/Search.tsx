@@ -1,13 +1,16 @@
 "use client";
 import { TransactionContext } from "@/contexts/transaction.context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
 const Search = () => {
-  const { transactions } = useContext(TransactionContext);
+  const { filteredTransactions, handleSearchTransactions } =
+    useContext(TransactionContext);
 
-  const transactionsLength = transactions.length;
+  const [transaction, setTransaction] = useState<string>("");
+
+  const transactionsLength = filteredTransactions.length;
 
   return (
     <div className="w-full max-w-1119 flex flex-col mt-16 mb-6 mx-auto max-sm:mb-2.5">
@@ -28,6 +31,8 @@ const Search = () => {
           margin="mr-4"
           marginMedia="max-sm:mr-2"
           placeholder="Busque uma transação"
+          name="search"
+          onChange={(e) => setTransaction(e.target.value)}
         />
         <Button
           text="Buscar"
@@ -40,6 +45,7 @@ const Search = () => {
           hoverBackground="hover:bg-color-primary-3"
           mediaGrey="max-sm:max-w-54 max-sm:p-0"
           isGrey={true}
+          onClick={() => handleSearchTransactions(transaction)}
         />
       </div>
     </div>
