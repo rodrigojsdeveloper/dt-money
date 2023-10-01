@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   IChildren,
   ITransactionProps,
@@ -9,13 +9,13 @@ import {
 export const TransactionContext = createContext({} as ITransactionContextData);
 
 export const TransactionContextProvider = ({ children }: IChildren) => {
-  const [transactions, setTransactions] = useState<Array<ITransactionProps>>([
-  ]);
+  const [transactions, setTransactions] = useState<Array<ITransactionProps>>(
+    []
+  );
 
   const [filteredTransactions, setFilteredTransactions] = useState<
     Array<ITransactionProps>
-  >([
-  ]);
+  >([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -24,8 +24,35 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   const [disabledPreviousPage, setDisabledPreviousPage] =
     useState<boolean>(true);
 
-  const addTransaction = (transaction: ITransactionProps) =>
-    setFilteredTransactions([transaction, ...filteredTransactions]);
+  const saveTransactionsToLocalStorage = (
+    transactions: Array<ITransactionProps>
+  ) => {
+    localStorage.setItem(
+      "DT Money: transactions",
+      JSON.stringify(transactions)
+    );
+  };
+
+  const loadTransactionsFromLocalStorage = () => {
+    const storedTransactions = localStorage.getItem("DT Money: transactions");
+    if (storedTransactions) {
+      return JSON.parse(storedTransactions);
+    }
+    return [];
+  };
+
+  useEffect(() => {
+    const storedTransactions = loadTransactionsFromLocalStorage();
+    setTransactions(storedTransactions);
+    setFilteredTransactions(storedTransactions);
+  }, []);
+
+  const addTransaction = (transaction: ITransactionProps) => {
+    const updatedTransactions = [transaction, ...transactions];
+    setTransactions(updatedTransactions);
+    setFilteredTransactions(updatedTransactions);
+    saveTransactionsToLocalStorage(updatedTransactions);
+  };
 
   const transactionsPerPage = 10;
 
@@ -53,23 +80,45 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
 
   const total =
     filteredTransactions
-      .filter((transaction) => transaction.option === "Entradas")
-      .reduce((total, transaction) => total + +transaction.price, 0) -
+      .filter(
+        (transaction: ITransactionProps) => transaction.option === "Entradas"
+      )
+      .reduce(
+        (total: number, transaction: ITransactionProps) =>
+          total + +transaction.price,
+        0
+      ) -
     filteredTransactions
-      .filter((transaction) => transaction.option === "Saídas")
-      .reduce((total, transaction) => total + +transaction.price, 0);
+      .filter(
+        (transaction: ITransactionProps) => transaction.option === "Saídas"
+      )
+      .reduce(
+        (total: number, transaction: ITransactionProps) =>
+          total + +transaction.price,
+        0
+      );
 
   const totalEntries = filteredTransactions
-    .filter((transaction) => transaction.option === "Entradas")
-    .reduce((total, transaction) => total + +transaction.price, 0);
+    .filter(
+      (transaction: ITransactionProps) => transaction.option === "Entradas"
+    )
+    .reduce(
+      (total: number, transaction: ITransactionProps) =>
+        total + +transaction.price,
+      0
+    );
 
   const totalExits = filteredTransactions
-    .filter((transaction) => transaction.option === "Saídas")
-    .reduce((total, transaction) => total + +transaction.price, 0);
+    .filter((transaction: ITransactionProps) => transaction.option === "Saídas")
+    .reduce(
+      (total: number, transaction: ITransactionProps) =>
+        total + +transaction.price,
+      0
+    );
 
   const handleSearchTransactions = (description: string) => {
     setFilteredTransactions(
-      transactions.filter((transaction) =>
+      transactions.filter((transaction: ITransactionProps) =>
         transaction.description
           .toLowerCase()
           .includes(description.toLowerCase())

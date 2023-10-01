@@ -2,6 +2,7 @@
 import { TransactionContext } from "@/contexts/transaction.context";
 import { useContext, useEffect } from "react";
 import { Transaction } from "./Transaction";
+import { MessageEmpty } from "./MessageEmpty";
 
 const List = () => {
   const {
@@ -34,9 +35,13 @@ const List = () => {
   return (
     <div>
       <menu className="w-full max-w-1119 px-6 mx-auto">
-        {paginatedTransactions.map((transaction) => (
-          <Transaction transaction={transaction} key={transaction.id} />
-        ))}
+        {filteredTransactions.length > 0 ? (
+          paginatedTransactions.map((transaction) => (
+            <Transaction transaction={transaction} key={transaction.id} />
+          ))
+        ) : (
+          <MessageEmpty />
+        )}
       </menu>
 
       <div className="w-full max-w-352 flex flex-row justify-center items-center my-10 mx-auto">
