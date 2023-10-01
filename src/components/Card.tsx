@@ -1,12 +1,14 @@
-interface ICard {
-  title: "Entradas" | "Saídas" | "Total";
-  children: React.ReactNode;
-  value: number;
-  background?: "bg-color-primary-2";
-  margin?: "mx-2.5";
-}
+"use client";
+import { ICardProps } from "@/interfaces";
 
-const Card = ({ title, children, value, background, margin }: ICard) => {
+const Card = ({
+  title,
+  children,
+  value,
+  background,
+  margin,
+  message,
+}: ICardProps) => {
   return (
     <div
       className={`w-full max-w-352 min-w-280 h-137 ${
@@ -23,7 +25,7 @@ const Card = ({ title, children, value, background, margin }: ICard) => {
         R$ {value.toLocaleString("pt-BR")}
       </p>
       <p className="font-normal text-sm text-grey-6 sm:hidden">
-        Última entrada em
+        {message}
       </p>
     </div>
   );

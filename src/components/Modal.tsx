@@ -120,7 +120,7 @@ const Modal = ({ setModal }: IModal) => {
           <button
             type="button"
             className={`w-full max-w-211 h-58 flex justify-center items-center ${
-              prohibited ? "bg-color-primary-4" : "bg-grey-3"
+              prohibited ? "bg-color-primary-4" : "bg-grey-3 hover:bg-grey-4"
             } rounded-def mr-4`}
             onClick={() => {
               setOption("Entradas");
@@ -161,7 +161,7 @@ const Modal = ({ setModal }: IModal) => {
           <button
             type="button"
             className={`w-full max-w-211 h-58 flex justify-center items-center ${
-              exit ? "bg-red-2" : "bg-grey-3"
+              exit ? "bg-red-2" : "bg-grey-3 hover:bg-grey-4"
             } rounded-def`}
             onClick={() => {
               setOption("Saídas");

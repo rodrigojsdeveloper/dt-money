@@ -30,6 +30,7 @@ export interface ITransactionContextData {
   totalExits: number;
   handleSearchTransactions: (description: string) => void;
   filteredTransactions: Array<ITransactionProps>;
+  handleLastTransaction: (option: string) => Date;
 }
 
 export interface IChildren {
@@ -38,4 +39,13 @@ export interface IChildren {
 
 export interface IModal {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface ICardProps {
+  title: "Entradas" | "Saídas" | "Total";
+  children: React.ReactNode;
+  value: number;
+  background?: "bg-color-primary-2";
+  margin?: "mx-2.5";
+  message: string;
 }

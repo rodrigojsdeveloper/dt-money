@@ -1,14 +1,26 @@
 "use client";
 import { TransactionContext } from "@/contexts/transaction.context";
+import { formatLastDate } from "@/utils/formatDate";
 import { useContext } from "react";
 import { Card } from "./Card";
 
 const Navigation = () => {
-  const { total, totalEntries, totalExits } = useContext(TransactionContext);
+  const { total, totalEntries, totalExits, handleLastTransaction } =
+    useContext(TransactionContext);
 
   return (
     <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 mt-82 mx-auto overflow-auto">
-      <Card title="Entradas" value={totalEntries}>
+      <Card
+        title="Entradas"
+        value={totalEntries}
+        message={
+          handleLastTransaction("Entradas")
+            ? `Última entrada em ${formatLastDate(
+                String(handleLastTransaction("Entradas"))
+              )}`
+            : ""
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -36,7 +48,18 @@ const Navigation = () => {
           />
         </svg>
       </Card>
-      <Card title="Saídas" value={totalExits} margin="mx-2.5">
+      <Card
+        title="Saídas"
+        value={totalExits}
+        margin="mx-2.5"
+        message={
+          handleLastTransaction("Saídas")
+            ? `Última saída em ${formatLastDate(
+                String(handleLastTransaction("Saídas"))
+              )}`
+            : ""
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -64,7 +87,18 @@ const Navigation = () => {
           />
         </svg>
       </Card>
-      <Card title="Total" background="bg-color-primary-2" value={total}>
+      <Card
+        title="Total"
+        background="bg-color-primary-2"
+        value={total}
+        message={
+          handleLastTransaction("Total")
+            ? `Última transação em ${formatLastDate(
+                String(handleLastTransaction("Total"))
+              )}`
+            : ""
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"

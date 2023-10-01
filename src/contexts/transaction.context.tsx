@@ -126,6 +126,29 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
     );
   };
 
+  const handleLastTransaction = (option: string) => {
+    let filteredTransactions = [];
+
+    if (option === "Total") {
+      filteredTransactions = transactions;
+    } else {
+      filteredTransactions = transactions.filter(
+        (transaction: ITransactionProps) => transaction.option === option
+      );
+    }
+
+    const lastTransaction = filteredTransactions.sort(
+      (a: ITransactionProps, b: ITransactionProps) => {
+        const dateA = new Date(a.created_at);
+        const dateB = new Date(b.created_at);
+
+        return +dateB - +dateA;
+      }
+    );
+
+    return lastTransaction[0]?.created_at;
+  };
+
   return (
     <TransactionContext.Provider
       value={{
@@ -145,6 +168,7 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
         totalExits,
         handleSearchTransactions,
         filteredTransactions,
+        handleLastTransaction,
       }}
     >
       {children}

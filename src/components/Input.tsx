@@ -26,7 +26,7 @@ const Input = ({
         margin ? margin : ""
       } placeholder:text-normal placeholder:text-base placeholder:text-grey-5 focus:placeholder:text-transparent ${
         marginMedia ? marginMedia : ""
-      }`}
+      } border border-solid border-grey-1 active:border-color-primary-1`}
       required={true}
       autoComplete="off"
       onChange={onChange}
