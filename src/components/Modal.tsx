@@ -19,7 +19,7 @@ const Modal = ({ setModal }: IModal) => {
     description: "",
     price: "",
     category: "",
-    option: "Entradas",
+    option: "Income",
     created_at: new Date(),
   });
 
@@ -36,7 +36,7 @@ const Modal = ({ setModal }: IModal) => {
       ...formData,
       id: crypto.randomUUID(),
       created_at: new Date(),
-      option: option === "Entradas" ? "Entradas" : "Saídas",
+      option: option === "Income" ? "Income" : "Expenses",
     };
 
     addTransaction(data);
@@ -46,7 +46,7 @@ const Modal = ({ setModal }: IModal) => {
       description: "",
       price: "",
       category: "",
-      option: "Entradas",
+      option: "Income",
       created_at: new Date(),
     });
     setOption("");
@@ -99,20 +99,20 @@ const Modal = ({ setModal }: IModal) => {
             name="description"
             value={formData.description}
             onChange={handleInputChange}
-            placeholder="Descrição"
+            placeholder="Description"
           />
           <Input
             name="price"
             value={formData.price}
             onChange={handleInputChange}
-            placeholder="Preço"
+            placeholder="Price"
             type="number"
           />
           <Input
             name="category"
             value={formData.category}
             onChange={handleInputChange}
-            placeholder="Categoria"
+            placeholder="Category"
           />
         </div>
 
@@ -123,7 +123,7 @@ const Modal = ({ setModal }: IModal) => {
               prohibited ? "bg-color-primary-4" : "bg-grey-3 hover:bg-grey-4"
             } rounded-def mr-4`}
             onClick={() => {
-              setOption("Entradas");
+              setOption("Income");
               setProhibited(true);
               setExit(false);
             }}
@@ -155,7 +155,7 @@ const Modal = ({ setModal }: IModal) => {
                 fill="#00B37E"
               />
             </svg>
-            Entrada
+            Income
           </button>
 
           <button
@@ -164,7 +164,7 @@ const Modal = ({ setModal }: IModal) => {
               exit ? "bg-red-2" : "bg-grey-3 hover:bg-grey-4"
             } rounded-def`}
             onClick={() => {
-              setOption("Saídas");
+              setOption("Expenses");
               setProhibited(false);
               setExit(true);
             }}
@@ -196,13 +196,13 @@ const Modal = ({ setModal }: IModal) => {
                 fill="#F75A68"
               />
             </svg>
-            Saída
+            Expenses
           </button>
         </div>
 
         <Button
           type="submit"
-          text="Cadastrar"
+          text="Register"
           hoverBorder="hover:border-color-primary-2"
         />
       </form>

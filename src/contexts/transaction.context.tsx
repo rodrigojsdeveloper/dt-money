@@ -87,7 +87,7 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   const total =
     filteredTransactions
       .filter(
-        (transaction: ITransactionProps) => transaction.option === "Entradas"
+        (transaction: ITransactionProps) => transaction.option === "Income"
       )
       .reduce(
         (total: number, transaction: ITransactionProps) =>
@@ -96,7 +96,7 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
       ) -
     filteredTransactions
       .filter(
-        (transaction: ITransactionProps) => transaction.option === "Saídas"
+        (transaction: ITransactionProps) => transaction.option === "Expenses"
       )
       .reduce(
         (total: number, transaction: ITransactionProps) =>
@@ -104,9 +104,9 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
         0
       );
 
-  const totalEntries = filteredTransactions
+  const totalIncome = filteredTransactions
     .filter(
-      (transaction: ITransactionProps) => transaction.option === "Entradas"
+      (transaction: ITransactionProps) => transaction.option === "Expenses"
     )
     .reduce(
       (total: number, transaction: ITransactionProps) =>
@@ -114,8 +114,10 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
       0
     );
 
-  const totalExits = filteredTransactions
-    .filter((transaction: ITransactionProps) => transaction.option === "Saídas")
+  const totalExpenses = filteredTransactions
+    .filter(
+      (transaction: ITransactionProps) => transaction.option === "Expenses"
+    )
     .reduce(
       (total: number, transaction: ITransactionProps) =>
         total + +transaction.price,
@@ -170,8 +172,8 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
         transactionsPerPage,
         paginatedTransactions,
         total,
-        totalEntries,
-        totalExits,
+        totalIncome,
+        totalExpenses,
         handleSearchTransactions,
         filteredTransactions,
         handleLastTransaction,

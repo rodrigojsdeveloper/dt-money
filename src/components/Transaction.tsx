@@ -10,13 +10,13 @@ const Transaction = ({ transaction }: ITransaction) => {
         </h2>
         <p
           className={`w-full max-w-200 min-w-100 flex items-center font-normal text-base ${
-            transaction.option === "Saídas"
+            transaction.option === "Expenses"
               ? "text-red-1"
               : "text-color-primary-1"
           } max-sm:font-bold max-sm:text-xl`}
         >
           R${" "}
-          {transaction.option === "Saídas"
+          {transaction.option === "Expenses"
             ? `-${transaction.price}`
             : transaction.price}
         </p>

@@ -8,7 +8,7 @@ const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "DT Money",
   description:
-    "Projeto de gestão financeira simplificado e eficiente para usuários controlarem receitas, despesas e saldo.",
+    "Simplified and efficient financial management project for users to control income, expenses and balance.",
 };
 
 export default function RootLayout({

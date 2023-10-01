@@ -5,7 +5,7 @@ const transactionSchema = z.object({
   description: z.string(),
   price: z.string(),
   category: z.string(),
-  option: z.enum(["Entradas", "Saídas"]).optional(),
+  option: z.enum(["Income", "Expenses"]).optional(),
   created_at: z.date(),
 });
 

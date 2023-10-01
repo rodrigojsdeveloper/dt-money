@@ -32,7 +32,7 @@ export interface ITransactionProps {
   description: string;
   price: string;
   category: string;
-  option?: "Entradas" | "Saídas";
+  option?: "Income" | "Expenses";
   created_at: Date;
 }
 
@@ -53,8 +53,8 @@ export interface ITransactionContextData {
   transactionsPerPage: number;
   paginatedTransactions: Array<ITransactionProps>;
   total: number;
-  totalEntries: number;
-  totalExits: number;
+  totalIncome: number;
+  totalExpenses: number;
   handleSearchTransactions: (description: string) => void;
   filteredTransactions: Array<ITransactionProps>;
   handleLastTransaction: (option: string) => Date;
@@ -70,7 +70,7 @@ export interface IModal {
 }
 
 export interface ICardProps {
-  title: "Entradas" | "Saídas" | "Total";
+  title: "Income" | "Expenses" | "Total";
   children: React.ReactNode;
   value: number;
   background?: "bg-color-primary-2";

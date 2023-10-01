@@ -5,18 +5,18 @@ import { useContext } from "react";
 import { Card } from "./Card";
 
 const Navigation = () => {
-  const { total, totalEntries, totalExits, handleLastTransaction } =
+  const { total, totalIncome, totalExpenses, handleLastTransaction } =
     useContext(TransactionContext);
 
   return (
     <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 mt-82 mx-auto overflow-auto">
       <Card
-        title="Entradas"
-        value={totalEntries}
+        title="Income"
+        value={totalIncome}
         message={
-          handleLastTransaction("Entradas")
-            ? `Última entrada em ${formatLastDate(
-                String(handleLastTransaction("Entradas"))
+          handleLastTransaction("Income")
+            ? `Last income in ${formatLastDate(
+                String(handleLastTransaction("Income"))
               )}`
             : ""
         }
@@ -49,13 +49,13 @@ const Navigation = () => {
         </svg>
       </Card>
       <Card
-        title="Saídas"
-        value={totalExits}
+        title="Expenses"
+        value={totalExpenses}
         margin="mx-2.5"
         message={
-          handleLastTransaction("Saídas")
-            ? `Última saída em ${formatLastDate(
-                String(handleLastTransaction("Saídas"))
+          handleLastTransaction("Expenses")
+            ? `Last expense in ${formatLastDate(
+                String(handleLastTransaction("Expenses"))
               )}`
             : ""
         }
@@ -93,7 +93,7 @@ const Navigation = () => {
         value={total}
         message={
           handleLastTransaction("Total")
-            ? `Última transação em ${formatLastDate(
+            ? `Last transaction on ${formatLastDate(
                 String(handleLastTransaction("Total"))
               )}`
             : ""

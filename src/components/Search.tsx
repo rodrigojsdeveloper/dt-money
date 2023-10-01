@@ -16,11 +16,11 @@ const Search = () => {
     <div className="w-full max-w-1119 flex flex-col mt-16 mb-6 mx-auto max-sm:mb-2.5">
       {transactionsLength > 0 ? (
         <div className="w-full flex flex-row justify-between items-center mb-2 px-6 sm:hidden">
-          <p className="font-normal text-lg text-grey-7">Transações</p>
+          <p className="font-normal text-lg text-grey-7">Transactions</p>
 
           <span className="font-normal text-base text-grey-5">
             {transactionsLength > 1
-              ? `${transactionsLength} itens`
+              ? `${transactionsLength} items`
               : `${transactionsLength} item`}
           </span>
         </div>
@@ -30,12 +30,12 @@ const Search = () => {
         <Input
           margin="mr-4"
           marginMedia="max-sm:mr-2"
-          placeholder="Busque uma transação"
+          placeholder="Search for a transaction"
           name="search"
           onChange={(e) => setTransaction(e.target.value)}
         />
         <Button
-          text="Buscar"
+          text="Search"
           height="h-54"
           isSearch={true}
           maxWidth="max-w-147"

@@ -1,9 +1,9 @@
 "use client";
 import { TransactionContext } from "@/contexts/transaction.context";
+import { ModalBackground } from "./ModalBackground";
 import { useContext, useEffect } from "react";
 import { MessageEmpty } from "./MessageEmpty";
 import { Transaction } from "./Transaction";
-import { ModalBackground } from "./ModalBackground";
 import { Loading } from "./Loading";
 
 const List = () => {
