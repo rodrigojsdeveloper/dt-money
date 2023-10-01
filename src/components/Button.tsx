@@ -12,6 +12,7 @@ interface IButtonProps {
   media?: "max-sm:h-38 max-sm:p-0 max-sm:max-w-130";
   mediaGrey?: "max-sm:max-w-54 max-sm:p-0";
   isGrey?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({
@@ -28,11 +29,13 @@ const Button = ({
   media,
   mediaGrey,
   isGrey,
+  onClick,
 }: IButtonProps) => {
   return (
     <button
+      onClick={onClick}
       type={type}
-      className={`w-full ${maxWidth ? maxWidth : "max-w-0"} ${
+      className={`w-full ${maxWidth ? maxWidth : "max-w-none"} ${
         height ? height : "h-50"
       } flex justify-center items-center ${
         background ? background : "bg-color-primary-1"

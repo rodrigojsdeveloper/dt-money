@@ -2,9 +2,10 @@ interface InputProps {
   placeholder: string;
   margin?: "mr-4";
   marginMedia?: "max-sm:mr-2";
+  type?: React.HTMLInputTypeAttribute;
 }
 
-const Input = ({ placeholder, margin, marginMedia }: InputProps) => {
+const Input = ({ placeholder, margin, marginMedia, type }: InputProps) => {
   return (
     <input
       placeholder={placeholder}
@@ -13,6 +14,7 @@ const Input = ({ placeholder, margin, marginMedia }: InputProps) => {
       } placeholder:text-normal placeholder:text-base placeholder:text-grey-5 focus:placeholder:text-transparent ${
         marginMedia ? marginMedia : ""
       }`}
+      type={type}
     />
   );
 };

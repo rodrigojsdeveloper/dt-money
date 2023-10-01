@@ -19,3 +19,7 @@ export interface ITransactionContextData {
 export interface IChildren {
   children: React.ReactNode;
 }
+
+export interface IModal {
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+}

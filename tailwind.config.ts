@@ -28,6 +28,7 @@ const config: Config = {
         white: "#FFFFFF",
         red: "#F75A68",
         transparent: "transparent",
+        shadow: "#00000064",
       },
       maxWidth: {
         "54": "54px",
@@ -37,11 +38,13 @@ const config: Config = {
         "147": "147px",
         "152": "152px",
         "200": "200px",
+        "211": "211.5px",
         "240": "240px",
         "332": "332px",
         "352": "352px",
         "957": "957px",
         "500": "500px",
+        "535": "535px",
         "1119": "1119.8px",
         "1440": "1440px",
       },
@@ -54,11 +57,14 @@ const config: Config = {
         "38": "38px",
         "50": "50px",
         "54": "54px",
+        "58": "58px",
         "66": "66px",
         "137": "137px",
         "140": "140px",
         "150": "150px",
+        "194": "194px",
         "212": "212px",
+        "528": "528px",
         "732": "732px",
       },
       borderRadius: {
@@ -70,6 +76,9 @@ const config: Config = {
       margin: {
         "82": "-82px",
       },
+      boxShadow: {
+        "default": "0 4px 32px 0 #00000080"
+      }
     },
   },
   plugins: [],
