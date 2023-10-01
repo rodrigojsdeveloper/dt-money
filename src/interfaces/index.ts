@@ -16,6 +16,15 @@ export interface ITransaction {
 export interface ITransactionContextData {
   transactions: Array<ITransactionProps>;
   addTransaction: (transaction: ITransactionProps) => void;
+  disabledNextPage: boolean;
+  disabledPreviousPage: boolean;
+  handleNextPage: () => void;
+  handlePreviousPage: () => void;
+  setDisabledNextPage: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>;
+  currentPage: number;
+  transactionsPerPage: number;
+  paginatedTransactions: Array<ITransactionProps>;
 }
 
 export interface IChildren {

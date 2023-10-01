@@ -34,6 +34,7 @@ const config: Config = {
         shadow: "#00000064",
       },
       maxWidth: {
+        "40": "40px",
         "54": "54px",
         "92": "92px",
         "110": "110px",
@@ -59,6 +60,7 @@ const config: Config = {
       },
       height: {
         "38": "38px",
+        "40": "40px",
         "50": "50px",
         "54": "54px",
         "58": "58px",
