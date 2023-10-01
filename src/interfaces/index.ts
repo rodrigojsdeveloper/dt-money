@@ -3,8 +3,9 @@ import React from "react";
 export interface ITransactionProps {
   id: string;
   title: string;
-  value: number;
+  price: number;
   category: string;
+  option: "Entradas" | "Saídas";
   created_at: Date;
 }
 

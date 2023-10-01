@@ -1,11 +1,28 @@
+import { UseFormRegister } from "react-hook-form";
+
 interface InputProps {
   placeholder: string;
   margin?: "mr-4";
   marginMedia?: "max-sm:mr-2";
   type?: React.HTMLInputTypeAttribute;
+  register: UseFormRegister<{
+    description: string;
+    price: number;
+    category: string;
+    created_at: Date;
+    option?: "Entradas" | "Saídas" | undefined;
+  }>;
+  name: "option" | "description" | "price" | "category" | "created_at";
 }
 
-const Input = ({ placeholder, margin, marginMedia, type }: InputProps) => {
+const Input = ({
+  placeholder,
+  margin,
+  marginMedia,
+  type,
+  register,
+  name,
+}: InputProps) => {
   return (
     <input
       placeholder={placeholder}
@@ -15,6 +32,9 @@ const Input = ({ placeholder, margin, marginMedia, type }: InputProps) => {
         marginMedia ? marginMedia : ""
       }`}
       type={type}
+      required={true}
+      autoComplete="off"
+      {...register(name)}
     />
   );
 };

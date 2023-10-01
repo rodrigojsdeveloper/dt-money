@@ -26,7 +26,10 @@ const config: Config = {
           "8": "#E1E1E6",
         },
         white: "#FFFFFF",
-        red: "#F75A68",
+        red: {
+          "1": "#F75A68",
+          "2": "rgb(247, 90, 104, 0.16)"
+        },
         transparent: "transparent",
         shadow: "#00000064",
       },

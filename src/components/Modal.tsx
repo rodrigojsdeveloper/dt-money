@@ -1,8 +1,34 @@
+import { transactionSchema } from "@/schemas/transaction.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { IModal } from "@/interfaces";
 import { Button } from "./Button";
+import { useState } from "react";
 import { Input } from "./Input";
+import * as zod from "zod";
+
+type FormData = zod.infer<typeof transactionSchema>;
 
 const Modal = ({ setModal }: IModal) => {
+  const [option, setOption] = useState<string>("");
+
+  const [prohibited, setProhibited] = useState<boolean>(false);
+
+  const [exit, setExit] = useState<boolean>(false);
+
+  const { register, handleSubmit, reset } = useForm<FormData>({
+    resolver: zodResolver(transactionSchema),
+  });
+
+  const onSubmitFunction = (data: FormData) => {
+    data.created_at = new Date();
+    option === "Entradas"
+      ? (data.option = "Entradas")
+      : (data.option = "Saídas");
+    console.log(data);
+    reset();
+  };
+
   return (
     <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5">
       <div className="w-full max-w-439 flex justify-end m-auto">
@@ -30,21 +56,40 @@ const Modal = ({ setModal }: IModal) => {
         </svg>
       </div>
 
-      <form className="w-full max-w-439 m-auto">
+      <form
+        className="w-full max-w-439 m-auto"
+        onSubmit={handleSubmit(onSubmitFunction)}
+      >
         <h2 className="font-bold text-2xl text-grey-8 mb-8 max-sm:mb-5">
           Nova transação
         </h2>
 
         <div className="w-full h-194 flex flex-col justify-between max-sm:h-186">
-          <Input placeholder="Descrição" />
-          <Input placeholder="Preço" type="number" />
-          <Input placeholder="Categoria" />
+          <Input
+            placeholder="Descrição"
+            register={register}
+            name="description"
+          />
+          <Input
+            placeholder="Preço"
+            type="number"
+            register={register}
+            name="price"
+          />
+          <Input placeholder="Categoria" register={register} name="category" />
         </div>
 
         <div className="w-full flex flex-row justify-between items-center mt-6 mb-10">
           <button
             type="button"
-            className="w-full max-w-211 h-58 flex justify-center items-center bg-grey-3 rounded-def mr-4"
+            className={`w-full max-w-211 h-58 flex justify-center items-center ${
+              prohibited ? "bg-color-primary-4" : "bg-grey-3"
+            } rounded-def mr-4`}
+            onClick={() => {
+              setOption("Entradas");
+              setProhibited(true);
+              setExit(false);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,9 +120,17 @@ const Modal = ({ setModal }: IModal) => {
             </svg>
             Entrada
           </button>
+
           <button
             type="button"
-            className="w-full max-w-211 h-58 flex justify-center items-center bg-grey-3 rounded-def"
+            className={`w-full max-w-211 h-58 flex justify-center items-center ${
+              exit ? "bg-red-2" : "bg-grey-3"
+            } rounded-def`}
+            onClick={() => {
+              setOption("Saídas");
+              setProhibited(false);
+              setExit(true);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +163,11 @@ const Modal = ({ setModal }: IModal) => {
           </button>
         </div>
 
-        <Button text="Cadastrar" type="submit" />
+        <Button
+          type="submit"
+          text="Cadastrar"
+          hoverBorder="hover:border-color-primary-2"
+        />
       </form>
     </div>
   );
