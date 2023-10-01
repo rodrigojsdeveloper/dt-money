@@ -2,10 +2,10 @@ import React from "react";
 
 export interface ITransactionProps {
   id: string;
-  title: string;
-  price: number;
+  description: string;
+  price: string;
   category: string;
-  option: "Entradas" | "Saídas";
+  option?: "Entradas" | "Saídas";
   created_at: Date;
 }
 
@@ -15,6 +15,7 @@ export interface ITransaction {
 
 export interface ITransactionContextData {
   transactions: Array<ITransactionProps>;
+  addTransaction: (transaction: ITransactionProps) => void;
 }
 
 export interface IChildren {

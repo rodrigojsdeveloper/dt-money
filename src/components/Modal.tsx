@@ -1,32 +1,57 @@
+import { TransactionContext } from "@/contexts/transaction.context";
 import { transactionSchema } from "@/schemas/transaction.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useContext, useState } from "react";
 import { IModal } from "@/interfaces";
 import { Button } from "./Button";
-import { useState } from "react";
 import { Input } from "./Input";
 import * as zod from "zod";
 
 type FormData = zod.infer<typeof transactionSchema>;
 
 const Modal = ({ setModal }: IModal) => {
+  const { addTransaction } = useContext(TransactionContext);
+
   const [option, setOption] = useState<string>("");
-
   const [prohibited, setProhibited] = useState<boolean>(false);
-
   const [exit, setExit] = useState<boolean>(false);
-
-  const { register, handleSubmit, reset } = useForm<FormData>({
-    resolver: zodResolver(transactionSchema),
+  const [formData, setFormData] = useState<FormData>({
+    id: "",
+    description: "",
+    price: "",
+    category: "",
+    option: "Entradas",
+    created_at: new Date(),
   });
 
-  const onSubmitFunction = (data: FormData) => {
-    data.created_at = new Date();
-    option === "Entradas"
-      ? (data.option = "Entradas")
-      : (data.option = "Saídas");
-    console.log(data);
-    reset();
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const onSubmitFunction = () => {
+    const data: FormData = {
+      ...formData,
+      id: crypto.randomUUID(),
+      created_at: new Date(),
+      option: option === "Entradas" ? "Entradas" : "Saídas",
+    };
+
+    addTransaction(data);
+
+    setFormData({
+      id: "",
+      description: "",
+      price: "",
+      category: "",
+      option: "Entradas",
+      created_at: new Date(),
+    });
+    setOption("");
+    setProhibited(false);
+    setExit(false);
   };
 
   return (
@@ -42,14 +67,14 @@ const Modal = ({ setModal }: IModal) => {
           onClick={() => setModal(false)}
         >
           <path
-            fillRule="evenodd"
-            clipRule="evenodd"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
             d="M19.2803 4.71967C19.5732 5.01256 19.5732 5.48744 19.2803 5.78033L5.78033 19.2803C5.48744 19.5732 5.01256 19.5732 4.71967 19.2803C4.42678 18.9874 4.42678 18.5126 4.71967 18.2197L18.2197 4.71967C18.5126 4.42678 18.9874 4.42678 19.2803 4.71967Z"
             fill="#7C7C8A"
           />
           <path
-            fillRule="evenodd"
-            clipRule="evenodd"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
             d="M4.71967 4.71967C5.01256 4.42678 5.48744 4.42678 5.78033 4.71967L19.2803 18.2197C19.5732 18.5126 19.5732 18.9874 19.2803 19.2803C18.9874 19.5732 18.5126 19.5732 18.2197 19.2803L4.71967 5.78033C4.42678 5.48744 4.42678 5.01256 4.71967 4.71967Z"
             fill="#7C7C8A"
           />
@@ -58,7 +83,10 @@ const Modal = ({ setModal }: IModal) => {
 
       <form
         className="w-full max-w-439 m-auto"
-        onSubmit={handleSubmit(onSubmitFunction)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmitFunction();
+        }}
       >
         <h2 className="font-bold text-2xl text-grey-8 mb-8 max-sm:mb-5">
           Nova transação
@@ -66,17 +94,24 @@ const Modal = ({ setModal }: IModal) => {
 
         <div className="w-full h-194 flex flex-col justify-between max-sm:h-186">
           <Input
-            placeholder="Descrição"
-            register={register}
             name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            placeholder="Descrição"
           />
           <Input
+            name="price"
+            value={formData.price}
+            onChange={handleInputChange}
             placeholder="Preço"
             type="number"
-            register={register}
-            name="price"
           />
-          <Input placeholder="Categoria" register={register} name="category" />
+          <Input
+            name="category"
+            value={formData.category}
+            onChange={handleInputChange}
+            placeholder="Categoria"
+          />
         </div>
 
         <div className="w-full flex flex-row justify-between items-center mt-6 mb-10">

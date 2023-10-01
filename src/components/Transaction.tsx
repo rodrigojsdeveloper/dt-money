@@ -6,14 +6,14 @@ const Transaction = ({ transaction }: ITransaction) => {
     <div className="w-full max-w-1119 h-66 flex flex-row justify-between items-center bg-grey-3 py-5 px-8 mb-2 rounded-def max-sm:h-140 max-sm:flex-col">
       <div className="w-full flex max-sm:flex-col">
         <h2 className="w-full max-w-500 min-w-200 flex items-center font-normal text-base text-grey-5 max-sm:mb-1">
-          {transaction.title}
+          {transaction.description}
         </h2>
         <p
           className={`w-full max-w-200 min-w-100 flex items-center font-normal text-base ${
-            transaction.price < 0 ? "text-red" : "text-color-primary-1"
+            +transaction.price < 0 ? "text-red" : "text-color-primary-1"
           } max-sm:font-bold max-sm:text-xl`}
         >
-          R$ {transaction.price < 0 ? transaction.price : transaction.price}
+          R$ {+transaction.price < 0 ? transaction.price : transaction.price}
         </p>
       </div>
 

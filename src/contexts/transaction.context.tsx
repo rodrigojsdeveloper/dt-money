@@ -12,24 +12,30 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   const [transactions, setTransactions] = useState<Array<ITransactionProps>>([
     {
       id: "1",
-      title: "Desenvolvedor",
+      description: "Desenvolvedor",
       category: "Alimentação",
-      value: 1000,
+      price: "1000",
       created_at: new Date(),
+      option: "Entradas",
     },
     {
       id: "2",
-      title: "Desenvolvedor de sites",
+      description: "Desenvolvedor de sites",
       category: "Venda",
-      value: 10000,
+      price: "10000",
       created_at: new Date(),
+      option: "Entradas",
     },
   ]);
+
+  const addTransaction = (transaction: ITransactionProps) =>
+    setTransactions([transaction, ...transactions]);
 
   return (
     <TransactionContext.Provider
       value={{
         transactions,
+        addTransaction,
       }}
     >
       {children}
