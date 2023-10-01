@@ -24,6 +24,8 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   const [disabledPreviousPage, setDisabledPreviousPage] =
     useState<boolean>(true);
 
+  const [loading, setLoading] = useState(true);
+
   const saveTransactionsToLocalStorage = (
     transactions: Array<ITransactionProps>
   ) => {
@@ -42,9 +44,13 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   };
 
   useEffect(() => {
+    setLoading(true);
+
     const storedTransactions = loadTransactionsFromLocalStorage();
     setTransactions(storedTransactions);
     setFilteredTransactions(storedTransactions);
+
+    setLoading(false);
   }, []);
 
   const addTransaction = (transaction: ITransactionProps) => {
@@ -169,6 +175,7 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
         handleSearchTransactions,
         filteredTransactions,
         handleLastTransaction,
+        loading,
       }}
     >
       {children}

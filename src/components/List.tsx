@@ -1,8 +1,10 @@
 "use client";
 import { TransactionContext } from "@/contexts/transaction.context";
 import { useContext, useEffect } from "react";
-import { Transaction } from "./Transaction";
 import { MessageEmpty } from "./MessageEmpty";
+import { Transaction } from "./Transaction";
+import { ModalBackground } from "./ModalBackground";
+import { Loading } from "./Loading";
 
 const List = () => {
   const {
@@ -14,6 +16,7 @@ const List = () => {
     transactionsPerPage,
     paginatedTransactions,
     filteredTransactions,
+    loading,
   } = useContext(TransactionContext);
 
   useEffect(() => {
@@ -35,7 +38,11 @@ const List = () => {
   return (
     <div>
       <menu className="w-full max-w-1119 px-6 mx-auto">
-        {filteredTransactions.length > 0 ? (
+        {loading ? (
+          <ModalBackground>
+            <Loading />
+          </ModalBackground>
+        ) : filteredTransactions.length > 0 ? (
           paginatedTransactions.map((transaction) => (
             <Transaction transaction={transaction} key={transaction.id} />
           ))

@@ -1,12 +1,4 @@
-interface InputProps {
-  placeholder: string;
-  margin?: "mr-4";
-  marginMedia?: "max-sm:mr-2";
-  type?: React.HTMLInputTypeAttribute;
-  name: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  value?: string | number | readonly string[];
-}
+import { InputProps } from "@/interfaces";
 
 const Input = ({
   placeholder,
@@ -26,7 +18,7 @@ const Input = ({
         margin ? margin : ""
       } placeholder:text-normal placeholder:text-base placeholder:text-grey-5 focus:placeholder:text-transparent ${
         marginMedia ? marginMedia : ""
-      } border border-solid border-grey-1 active:border-color-primary-1`}
+      } border border-solid border-grey-1 focus:border-color-primary-1`}
       required={true}
       autoComplete="off"
       onChange={onChange}
