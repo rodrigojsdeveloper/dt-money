@@ -33,7 +33,7 @@ const List = () => {
 
   return (
     <div>
-      <menu className="w-full max-w-1119 h-732 px-6 mx-auto">
+      <menu className="w-full max-w-1119 px-6 mx-auto">
         {paginatedTransactions.map((transaction) => (
           <Transaction transaction={transaction} key={transaction.id} />
         ))}

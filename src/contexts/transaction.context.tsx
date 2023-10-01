@@ -283,6 +283,19 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
     }
   };
 
+  const total = transactions.reduce(
+    (total, transaction) => total + +transaction.price,
+    0
+  );
+
+  const totalEntries = transactions
+    .filter((transaction) => transaction.option === "Entradas")
+    .reduce((total, transaction) => total + +transaction.price, 0);
+
+  const totalExits = transactions
+    .filter((transaction) => transaction.option === "Saídas")
+    .reduce((total, transaction) => total + +transaction.price, 0);
+
   return (
     <TransactionContext.Provider
       value={{
@@ -297,6 +310,9 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
         currentPage,
         transactionsPerPage,
         paginatedTransactions,
+        total,
+        totalEntries,
+        totalExits,
       }}
     >
       {children}

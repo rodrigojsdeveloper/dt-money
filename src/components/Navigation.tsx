@@ -1,9 +1,14 @@
+"use client";
+import { TransactionContext } from "@/contexts/transaction.context";
+import { useContext } from "react";
 import { Card } from "./Card";
 
 const Navigation = () => {
+  const { total, totalEntries, totalExits } = useContext(TransactionContext);
+
   return (
     <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 mt-82 mx-auto overflow-auto">
-      <Card title="Entradas" value="17.400,00">
+      <Card title="Entradas" value={totalEntries}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -31,7 +36,7 @@ const Navigation = () => {
           />
         </svg>
       </Card>
-      <Card title="Saídas" value="17.400,00" margin="mx-2.5">
+      <Card title="Saídas" value={totalExits} margin="mx-2.5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -59,7 +64,7 @@ const Navigation = () => {
           />
         </svg>
       </Card>
-      <Card title="Total" background="bg-color-primary-2" value="17.400,00">
+      <Card title="Total" background="bg-color-primary-2" value={total}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"

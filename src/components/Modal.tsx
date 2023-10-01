@@ -52,10 +52,12 @@ const Modal = ({ setModal }: IModal) => {
     setOption("");
     setProhibited(false);
     setExit(false);
+
+    setModal(false);
   };
 
   return (
-    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5">
+    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default animate-form max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5 max-sm:animate-form-mobile">
       <div className="w-full max-w-439 flex justify-end m-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"

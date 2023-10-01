@@ -25,6 +25,9 @@ export interface ITransactionContextData {
   currentPage: number;
   transactionsPerPage: number;
   paginatedTransactions: Array<ITransactionProps>;
+  total: number;
+  totalEntries: number;
+  totalExits: number;
 }
 
 export interface IChildren {

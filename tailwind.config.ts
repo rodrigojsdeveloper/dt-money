@@ -28,7 +28,7 @@ const config: Config = {
         white: "#FFFFFF",
         red: {
           "1": "#F75A68",
-          "2": "rgb(247, 90, 104, 0.16)"
+          "2": "rgb(247, 90, 104, 0.16)",
         },
         transparent: "transparent",
         shadow: "#00000064",
@@ -76,7 +76,7 @@ const config: Config = {
         "732": "732px",
       },
       borderRadius: {
-        "def": "4px",
+        def: "4px",
         "20": "20px",
       },
       fontSize: {
@@ -86,8 +86,22 @@ const config: Config = {
         "82": "-82px",
       },
       boxShadow: {
-        "default": "0 4px 32px 0 #00000080"
-      }
+        default: "0 4px 32px 0 #00000080",
+      },
+      keyframes: {
+        form: {
+          from: { opacity: "0", transform: "translatey(-50px)" },
+          to: { opacity: "1", transform: "translateX(0px)" },
+        },
+        "form-mobile": {
+          from: { opacity: "0", transform: "translateY(25px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        form: "form 1s",
+        "form-mobile": "form-mobile 1s",
+      },
     },
   },
   plugins: [],

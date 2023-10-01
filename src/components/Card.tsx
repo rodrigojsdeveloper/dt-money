@@ -1,7 +1,7 @@
 interface ICard {
   title: "Entradas" | "Saídas" | "Total";
   children: React.ReactNode;
-  value: string;
+  value: number;
   background?: "bg-color-primary-2";
   margin?: "mx-2.5";
 }
@@ -20,7 +20,7 @@ const Card = ({ title, children, value, background, margin }: ICard) => {
       </div>
 
       <p className="font-bold text-32 text-grey-8 max-sm:text-2xl max-sm:mb-1">
-        R$ {value}
+        R$ {value.toLocaleString("pt-BR")}
       </p>
       <p className="font-normal text-sm text-grey-6 sm:hidden">
         Última entrada em
