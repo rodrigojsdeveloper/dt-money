@@ -35,8 +35,6 @@ const List = () => {
     currentPageSpans.push(i);
   }
 
-  console.log(totalPages);
-
   return (
     <div>
       <menu className="w-full max-w-1119 px-6 mx-auto">

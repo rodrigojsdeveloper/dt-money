@@ -91,7 +91,7 @@ const Modal = ({ setModal }: IModal) => {
         }}
       >
         <h2 className="font-bold text-2xl text-grey-8 mb-8 max-sm:mb-5">
-          Nova transação
+          New transaction
         </h2>
 
         <div className="w-full h-194 flex flex-col justify-between max-sm:h-186">
