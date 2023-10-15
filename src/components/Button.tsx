@@ -15,14 +15,15 @@ const Button = ({
   mediaGrey,
   isGrey,
   onClick,
+  absolute,
 }: IButtonProps) => {
   return (
     <button
       onClick={onClick}
       type={type}
-      className={`w-full ${maxWidth ? maxWidth : "max-w-none"} ${
-        height ? height : "h-50"
-      } flex justify-center items-center ${
+      className={`w-full ${absolute ? absolute : ""} ${
+        maxWidth ? maxWidth : "max-w-none"
+      } ${height ? height : "h-50"} flex justify-center items-center ${
         background ? background : "bg-color-primary-1"
       } border border-solid border-color-primary-1 font-bold text-sm ${
         color ? color : "text-white"

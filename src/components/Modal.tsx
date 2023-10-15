@@ -84,7 +84,7 @@ const Modal = ({ setModal }: IModal) => {
       </div>
 
       <form
-        className="w-full max-w-439 m-auto"
+        className="w-full max-w-439 m-auto relative"
         onSubmit={(e) => {
           e.preventDefault();
           onSubmitFunction();
@@ -203,6 +203,8 @@ const Modal = ({ setModal }: IModal) => {
         <Button
           type="submit"
           text="Register"
+          absolute="absolute"
+          maxWidth="max-w-439"
           hoverBorder="hover:border-color-primary-2"
         />
       </form>

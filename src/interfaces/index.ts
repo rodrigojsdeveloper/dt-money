@@ -4,7 +4,7 @@ export interface IButtonProps {
   isSearch?: boolean;
   text: string;
   type?: "button" | "submit" | "reset";
-  maxWidth?: "max-w-147" | "max-w-152";
+  maxWidth?: "max-w-147" | "max-w-152" | "max-w-439";
   height?: "h-54";
   background?: "bg-grey-2";
   color?: "text-color-primary-1";
@@ -13,6 +13,7 @@ export interface IButtonProps {
   active?: "active:bg-color-primary-4";
   media?: "max-sm:h-38 max-sm:p-0 max-sm:max-w-130";
   mediaGrey?: "max-sm:max-w-54 max-sm:p-0";
+  absolute?: "absolute";
   isGrey?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -62,6 +63,7 @@ export interface ITransactionContextData {
 
 export interface IChildren {
   children: React.ReactNode;
+  isLoading?: string;
 }
 
 export interface IModal {
