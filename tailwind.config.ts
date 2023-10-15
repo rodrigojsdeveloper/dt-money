@@ -61,6 +61,7 @@ const config: Config = {
       height: {
         "38": "38px",
         "40": "40px",
+        "49": "49px",
         "50": "50px",
         "54": "54px",
         "58": "58px",
@@ -76,7 +77,7 @@ const config: Config = {
         "732": "732px",
       },
       borderRadius: {
-        def: "4px",
+        "def": "4px",
         "20": "20px",
       },
       fontSize: {
@@ -86,7 +87,7 @@ const config: Config = {
         "82": "-82px",
       },
       boxShadow: {
-        default: "0 4px 32px 0 #00000080",
+        "default": "0 4px 32px 0 #00000080",
       },
       keyframes: {
         form: {
