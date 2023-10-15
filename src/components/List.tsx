@@ -24,7 +24,13 @@ const List = () => {
     setDisabledNextPage(
       currentPage * transactionsPerPage >= filteredTransactions.length
     );
-  }, [currentPage, filteredTransactions]);
+  }, [
+    currentPage,
+    filteredTransactions,
+    setDisabledNextPage,
+    setDisabledPreviousPage,
+    transactionsPerPage,
+  ]);
 
   const totalPages = Math.ceil(
     filteredTransactions.length / transactionsPerPage

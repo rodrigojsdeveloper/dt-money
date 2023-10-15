@@ -19,8 +19,7 @@ export interface IButtonProps {
 
 export interface InputProps {
   placeholder: string;
-  margin?: "mr-4";
-  marginMedia?: "max-sm:mr-2";
+  margin?: "mr-2.5 max-sm:mr-0";
   type?: React.HTMLInputTypeAttribute;
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -74,6 +73,5 @@ export interface ICardProps {
   children: React.ReactNode;
   value: number;
   background?: "bg-color-primary-2";
-  margin?: "mx-2.5";
   message: string;
 }

@@ -3,9 +3,9 @@ import { ITransaction } from "@/interfaces";
 
 const Transaction = ({ transaction }: ITransaction) => {
   return (
-    <div className="w-full max-w-1119 h-66 flex flex-row justify-between items-center bg-grey-3 py-5 px-8 mb-2 rounded-def max-sm:h-140 max-sm:flex-col">
-      <div className="w-full flex max-sm:flex-col">
-        <h2 className="w-full max-w-500 min-w-200 flex items-center font-normal text-base text-grey-5 max-sm:mb-1">
+    <div className="w-full max-w-1119 h-66 flex flex-row justify-between items-center bg-grey-3 py-5 px-8 mb-2 rounded-def max-sm:h-140 max-sm:flex-col max-sm:px-5 max-sm:mb-3">
+      <div className="w-full flex max-sm:flex-col max-sm:gap-y-1.5">
+        <h2 className="w-full max-w-500 min-w-200 flex items-center font-normal text-base text-grey-7">
           {transaction.description}
         </h2>
         <p
@@ -15,22 +15,21 @@ const Transaction = ({ transaction }: ITransaction) => {
               : "text-color-primary-1"
           } max-sm:font-bold max-sm:text-xl`}
         >
-          R${" "}
           {transaction.option === "Expenses"
-            ? `-${transaction.price}`
-            : transaction.price}
+            ? `- R$ ${transaction.price}`
+            : `R$ ${transaction.price}`}
         </p>
       </div>
 
       <div className="w-full max-w-332 flex flex-row justify-between items-center max-sm:max-w-none">
-        <p className="w-full max-w-240 flex items-center font-normal text-base text-grey-5">
+        <p className="w-full max-w-240 flex items-center font-normal text-base text-grey-5 max-sm:gap-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             viewBox="0 0 16 16"
             fill="none"
-            className="mr-1 sm:hidden"
+            className="sm:hidden"
           >
             <path
               fillRule="evenodd"
@@ -41,14 +40,14 @@ const Transaction = ({ transaction }: ITransaction) => {
           </svg>
           {transaction.category}
         </p>
-        <p className="w-full max-w-92 flex justify-end items-center font-normal text-base text-grey-5 max-sm:max-w-110">
+        <p className="w-full max-w-92 flex justify-end items-center font-normal text-base text-grey-5 max-sm:max-w-110 max-sm:gap-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             viewBox="0 0 16 16"
             fill="none"
-            className="mr-1 sm:hidden"
+            className="sm:hidden"
           >
             <path
               fillRule="evenodd"

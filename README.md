@@ -3,7 +3,7 @@
    DT Money
 </h1>
 
-<p>Simplified and efficient financial management project for users to control income, expenses and balance.</p>
+<p>DT Money is a financial management, offering users efficiency in managing their income, expenses and balance.</p>
 </div>
 <br/>
 

@@ -9,7 +9,7 @@ const Navigation = () => {
     useContext(TransactionContext);
 
   return (
-    <div className="w-full max-w-1119 flex flex-row justify-between items-center px-6 mt-82 mx-auto overflow-auto">
+    <div className="w-full max-w-1119 flex flex-row justify-between items-center gap-x-4 px-6 -mt-20 mx-auto overflow-auto scrollbar-hide max-sm:-mt-24">
       <Card
         title="Income"
         value={totalIncome}
@@ -51,7 +51,6 @@ const Navigation = () => {
       <Card
         title="Expenses"
         value={totalExpenses}
-        margin="mx-2.5"
         message={
           handleLastTransaction("Expenses")
             ? `Last expense in ${formatLastDate(

@@ -14,8 +14,8 @@ const Header = () => {
           <Modal setModal={setModal} />
         </ModalBackground>
       ) : null}
-      <header className="w-full h-212 flex flex-row justify-center bg-grey-1 m-auto">
-        <div className="w-full max-w-1119 h-50 flex flex-row justify-between mt-10 px-6 max-sm:h-38 max-sm:items-center">
+      <header className="w-full h-212 flex flex-row justify-center bg-grey-1 pt-10 m-auto max-sm:h-200 max-sm:pt-6">
+        <div className="w-full max-w-1119 h-50 flex flex-row justify-between px-6 max-sm:h-38 max-sm:items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="173"

@@ -71,3 +71,7 @@ input[type="number"] {
   border-radius: 0.5px;
   background-color: var(--color-grey-3);
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
