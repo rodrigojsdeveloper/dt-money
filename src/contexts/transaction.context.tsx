@@ -1,14 +1,10 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
-import {
-  IChildren,
-  ITransactionProps,
-  ITransactionContextData,
-} from "../interfaces";
+import { createContext, useEffect, useState, PropsWithChildren } from "react";
+import { ITransactionProps, ITransactionContextData } from "../interfaces";
 
-export const TransactionContext = createContext({} as ITransactionContextData);
+const TransactionContext = createContext({} as ITransactionContextData);
 
-export const TransactionContextProvider = ({ children }: IChildren) => {
+const TransactionContextProvider = ({ children }: PropsWithChildren) => {
   const [transactions, setTransactions] = useState<Array<ITransactionProps>>(
     []
   );
@@ -37,10 +33,7 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
 
   const loadTransactionsFromLocalStorage = () => {
     const storedTransactions = localStorage.getItem("DT Money: transactions");
-    if (storedTransactions) {
-      return JSON.parse(storedTransactions);
-    }
-    return [];
+    return storedTransactions ? JSON.parse(storedTransactions) : [];
   };
 
   useEffect(() => {
@@ -61,10 +54,8 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   };
 
   const transactionsPerPage = 10;
-
   const startIndex = (currentPage - 1) * transactionsPerPage;
   const endIndex = startIndex + transactionsPerPage;
-
   const paginatedTransactions = filteredTransactions.slice(
     startIndex,
     endIndex
@@ -73,9 +64,8 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
   const handleNextPage = () => {
     if (!disabledNextPage) {
       setCurrentPage(currentPage + 1);
+      window.scroll({ top: 0 });
     }
-
-    window.scroll({ top: 0 });
   };
 
   const handlePreviousPage = () => {
@@ -84,45 +74,14 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
     }
   };
 
-  const total =
-    filteredTransactions
-      .filter(
-        (transaction: ITransactionProps) => transaction.option === "Income"
-      )
-      .reduce(
-        (total: number, transaction: ITransactionProps) =>
-          total + +transaction.price,
-        0
-      ) -
-    filteredTransactions
-      .filter(
-        (transaction: ITransactionProps) => transaction.option === "Expenses"
-      )
-      .reduce(
-        (total: number, transaction: ITransactionProps) =>
-          total + +transaction.price,
-        0
-      );
+  const calculateTotal = (option: string) => {
+    return filteredTransactions
+      .filter((transaction) => transaction.option === option)
+      .reduce((total, transaction) => total + +transaction.price, 0);
+  };
 
-  const totalIncome = filteredTransactions
-    .filter(
-      (transaction: ITransactionProps) => transaction.option === "Expenses"
-    )
-    .reduce(
-      (total: number, transaction: ITransactionProps) =>
-        total + +transaction.price,
-      0
-    );
-
-  const totalExpenses = filteredTransactions
-    .filter(
-      (transaction: ITransactionProps) => transaction.option === "Expenses"
-    )
-    .reduce(
-      (total: number, transaction: ITransactionProps) =>
-        total + +transaction.price,
-      0
-    );
+  const totalIncome = calculateTotal("Income");
+  const totalExpenses = calculateTotal("Expenses");
 
   const handleSearchTransactions = (description: string) => {
     setFilteredTransactions(
@@ -146,41 +105,39 @@ export const TransactionContextProvider = ({ children }: IChildren) => {
     }
 
     const lastTransaction = filteredTransactions.sort(
-      (a: ITransactionProps, b: ITransactionProps) => {
-        const dateA = new Date(a.created_at);
-        const dateB = new Date(b.created_at);
-
-        return +dateB - +dateA;
-      }
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
 
     return lastTransaction[0]?.created_at;
   };
 
+  const transactionContextData = {
+    transactions,
+    addTransaction,
+    disabledNextPage,
+    disabledPreviousPage,
+    handleNextPage,
+    handlePreviousPage,
+    setDisabledNextPage,
+    setDisabledPreviousPage,
+    currentPage,
+    transactionsPerPage,
+    paginatedTransactions,
+    total: totalIncome - totalExpenses,
+    totalIncome,
+    totalExpenses,
+    handleSearchTransactions,
+    filteredTransactions,
+    handleLastTransaction,
+    loading,
+  };
+
   return (
-    <TransactionContext.Provider
-      value={{
-        transactions,
-        addTransaction,
-        disabledNextPage,
-        disabledPreviousPage,
-        handleNextPage,
-        handlePreviousPage,
-        setDisabledNextPage,
-        setDisabledPreviousPage,
-        currentPage,
-        transactionsPerPage,
-        paginatedTransactions,
-        total,
-        totalIncome,
-        totalExpenses,
-        handleSearchTransactions,
-        filteredTransactions,
-        handleLastTransaction,
-        loading,
-      }}
-    >
+    <TransactionContext.Provider value={transactionContextData}>
       {children}
     </TransactionContext.Provider>
   );
 };
+
+export { TransactionContext, TransactionContextProvider };

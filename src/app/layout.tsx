@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { Providers } from "@/contexts";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -8,11 +9,7 @@ export const metadata: Metadata = {
     "DT Money is a financial management, offering users efficiency in managing their income, expenses and balance.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <head>

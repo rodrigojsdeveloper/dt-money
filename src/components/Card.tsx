@@ -1,7 +1,14 @@
 "use client";
 import { ICardProps } from "@/interfaces";
+import { PropsWithChildren } from "react";
 
-const Card = ({ title, children, value, background, message }: ICardProps) => {
+const Card = ({
+  title,
+  value,
+  background,
+  message,
+  children,
+}: PropsWithChildren<ICardProps>) => {
   return (
     <div
       className={`w-full max-w-352 min-w-280 h-137 ${

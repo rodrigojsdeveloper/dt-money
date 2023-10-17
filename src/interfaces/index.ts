@@ -61,8 +61,7 @@ export interface ITransactionContextData {
   loading: boolean;
 }
 
-export interface IChildren {
-  children: React.ReactNode;
+export interface IsLoadingProps {
   isLoading?: string;
 }
 
@@ -72,7 +71,6 @@ export interface IModal {
 
 export interface ICardProps {
   title: "Income" | "Expenses" | "Total";
-  children: React.ReactNode;
   value: number;
   background?: "bg-color-primary-2";
   message: string;

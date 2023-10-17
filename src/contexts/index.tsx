@@ -1,7 +1,7 @@
 import { TransactionContextProvider } from "./transaction.context";
-import { IChildren } from "../interfaces";
+import { PropsWithChildren } from "react";
 
-const Providers = ({ children }: IChildren) => {
+const Providers = ({ children }: PropsWithChildren) => {
   return <TransactionContextProvider>{children}</TransactionContextProvider>;
 };
 
