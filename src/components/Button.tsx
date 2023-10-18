@@ -1,4 +1,4 @@
-import { IButtonProps } from "@/interfaces";
+import { IButtonProps } from '@/interfaces'
 
 const Button = ({
   isSearch,
@@ -20,17 +20,15 @@ const Button = ({
     <button
       onClick={onClick}
       type={type}
-      className={`w-full ${maxWidth ? maxWidth : "max-w-none"} ${
-        height ? height : "h-50"
-      } flex justify-center items-center ${
-        background ? background : "bg-colorPrimary-1"
-      } border border-solid border-colorPrimary-1 font-bold text-sm ${
-        color ? color : "text-white"
-      } rounded-def p-3 ${
-        hoverBackground ? hoverBackground : "hover:bg-colorPrimary-2"
-      } ${hoverBorder ? hoverBorder : ""} ${active ? active : ""} ${
-        media ? media : ""
-      } ${mediaGrey ? mediaGrey : ""}`}
+      className={`w-full ${maxWidth || 'max-w-none'} ${
+        height || 'h-50'
+      } flex items-center justify-center ${
+        background || 'bg-colorPrimary-1'
+      } border border-solid border-colorPrimary-1 text-sm font-bold ${
+        color || 'text-white'
+      } rounded-def p-3 ${hoverBackground || 'hover:bg-colorPrimary-2'} ${
+        hoverBorder || ''
+      } ${active || ''} ${media || ''} ${mediaGrey || ''}`}
     >
       {isSearch ? (
         <svg
@@ -56,9 +54,9 @@ const Button = ({
         </svg>
       ) : null}
 
-      <p className={`${isGrey ? "max-sm:hidden" : ""}`}>{text}</p>
+      <p className={`${isGrey ? 'max-sm:hidden' : ''}`}>{text}</p>
     </button>
-  );
-};
+  )
+}
 
-export { Button };
+export { Button }

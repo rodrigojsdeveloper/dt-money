@@ -1,11 +1,11 @@
-"use client";
-import { ModalBackground } from "./ModalBackground";
-import { Button } from "./Button";
-import { useState } from "react";
-import { Modal } from "./Modal";
+'use client'
+import { ModalBackground } from './ModalBackground'
+import { Button } from './Button'
+import { useState } from 'react'
+import { Modal } from './Modal'
 
 const Header = () => {
-  const [modal, setModal] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false)
 
   return (
     <>
@@ -14,8 +14,8 @@ const Header = () => {
           <Modal setModal={setModal} />
         </ModalBackground>
       ) : null}
-      <header className="w-full h-212 flex flex-row justify-center bg-grey-1 pt-10 m-auto max-sm:h-200 max-sm:pt-6">
-        <div className="w-full max-w-1119 h-50 flex flex-row justify-between px-6 max-sm:h-38 max-sm:items-center">
+      <header className="m-auto flex h-212 w-full flex-row justify-center bg-grey-1 pt-10 max-sm:h-200 max-sm:pt-6">
+        <div className="flex h-50 w-full max-w-1119 flex-row justify-between px-6 max-sm:h-38 max-sm:items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="173"
@@ -106,7 +106,7 @@ const Header = () => {
         </div>
       </header>
     </>
-  );
-};
+  )
+}
 
-export { Header };
+export { Header }

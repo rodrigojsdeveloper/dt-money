@@ -1,64 +1,64 @@
-import { TransactionContext } from "@/contexts/transaction.context";
-import { transactionSchema } from "@/schemas/transaction.schema";
-import { useContext, useState } from "react";
-import { IModal } from "@/interfaces";
-import { Button } from "./Button";
-import { Input } from "./Input";
-import * as zod from "zod";
+import { TransactionContext } from '@/contexts/transaction.context'
+import { transactionSchema } from '@/schemas/transaction.schema'
+import { useContext, useState } from 'react'
+import { IModal } from '@/interfaces'
+import { Button } from './Button'
+import { Input } from './Input'
+import * as zod from 'zod'
 
-type FormData = zod.infer<typeof transactionSchema>;
+type FormData = zod.infer<typeof transactionSchema>
 
 const Modal = ({ setModal }: IModal) => {
-  const { addTransaction } = useContext(TransactionContext);
+  const { addTransaction } = useContext(TransactionContext)
 
-  const [option, setOption] = useState<string>("");
-  const [prohibited, setProhibited] = useState<boolean>(false);
-  const [exit, setExit] = useState<boolean>(false);
+  const [option, setOption] = useState<string>('')
+  const [prohibited, setProhibited] = useState<boolean>(false)
+  const [exit, setExit] = useState<boolean>(false)
   const [formData, setFormData] = useState<FormData>({
-    id: "",
-    description: "",
-    price: "",
-    category: "",
-    option: "Income",
+    id: '',
+    description: '',
+    price: '',
+    category: '',
+    option: 'Income',
     created_at: new Date(),
-  });
+  })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const onSubmitFunction = () => {
     const data: FormData = {
       ...formData,
       id: crypto.randomUUID(),
       created_at: new Date(),
-      option: option === "Income" ? "Income" : "Expenses",
-    };
+      option: option === 'Income' ? 'Income' : 'Expenses',
+    }
 
-    addTransaction(data);
+    addTransaction(data)
 
     setFormData({
-      id: "",
-      description: "",
-      price: "",
-      category: "",
-      option: "Income",
+      id: '',
+      description: '',
+      price: '',
+      category: '',
+      option: 'Income',
       created_at: new Date(),
-    });
-    setOption("");
-    setProhibited(false);
-    setExit(false);
+    })
+    setOption('')
+    setProhibited(false)
+    setExit(false)
 
-    setModal(false);
-  };
+    setModal(false)
+  }
 
   return (
-    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default animate-form max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5 max-sm:animate-formMobile">
-      <div className="w-full max-w-439 flex justify-end m-auto">
+    <div className="h-528 w-full max-w-535 animate-form rounded-def bg-grey-2 px-12 py-10 shadow-default max-sm:h-478 max-sm:max-w-none max-sm:animate-formMobile max-sm:rounded-t-20 max-sm:px-5 max-sm:py-7">
+      <div className="m-auto flex w-full max-w-439 justify-end">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -84,17 +84,17 @@ const Modal = ({ setModal }: IModal) => {
       </div>
 
       <form
-        className="w-full max-w-439 m-auto relative"
+        className="relative m-auto w-full max-w-439"
         onSubmit={(e) => {
-          e.preventDefault();
-          onSubmitFunction();
+          e.preventDefault()
+          onSubmitFunction()
         }}
       >
-        <h2 className="font-bold text-2xl text-grey-8 mb-8 max-sm:mb-5">
+        <h2 className="mb-8 text-2xl font-bold text-grey-8 max-sm:mb-5">
           New transaction
         </h2>
 
-        <div className="w-full h-194 flex flex-col justify-between max-sm:h-186">
+        <div className="flex h-194 w-full flex-col justify-between max-sm:h-186">
           <Input
             name="description"
             value={formData.description}
@@ -116,16 +116,16 @@ const Modal = ({ setModal }: IModal) => {
           />
         </div>
 
-        <div className="w-full flex flex-row justify-between items-center mt-6 mb-10">
+        <div className="mb-10 mt-6 flex w-full flex-row items-center justify-between">
           <button
             type="button"
-            className={`w-full max-w-211 h-58 flex justify-center items-center ${
-              prohibited ? "bg-colorPrimary-4" : "bg-grey-3 hover:bg-grey-4"
-            } rounded-def mr-4`}
+            className={`flex h-58 w-full max-w-211 items-center justify-center ${
+              prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
+            } mr-4 rounded-def`}
             onClick={() => {
-              setOption("Income");
-              setProhibited(true);
-              setExit(false);
+              setOption('Income')
+              setProhibited(true)
+              setExit(false)
             }}
           >
             <svg
@@ -160,13 +160,13 @@ const Modal = ({ setModal }: IModal) => {
 
           <button
             type="button"
-            className={`w-full max-w-211 h-58 flex justify-center items-center ${
-              exit ? "bg-red-2" : "bg-grey-3 hover:bg-grey-4"
+            className={`flex h-58 w-full max-w-211 items-center justify-center ${
+              exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
             } rounded-def`}
             onClick={() => {
-              setOption("Expenses");
-              setProhibited(false);
-              setExit(true);
+              setOption('Expenses')
+              setProhibited(false)
+              setExit(true)
             }}
           >
             <svg
@@ -208,7 +208,7 @@ const Modal = ({ setModal }: IModal) => {
         />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export { Modal };
+export { Modal }

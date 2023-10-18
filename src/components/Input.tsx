@@ -1,4 +1,4 @@
-import { InputProps } from "@/interfaces";
+import { InputProps } from '@/interfaces'
 
 const Input = ({
   placeholder,
@@ -13,15 +13,15 @@ const Input = ({
       type={type}
       name={name}
       placeholder={placeholder}
-      className={`w-full max-w-957 h-54 bg-grey-1 p-4 rounded-def ${
-        margin ? margin : ""
-      } placeholder:text-normal placeholder:text-base placeholder:text-grey-5 focus:placeholder:text-transparent border border-solid border-grey-1 focus:border-colorPrimary-1`}
+      className={`h-54 w-full max-w-957 rounded-def bg-grey-1 p-4 ${
+        margin || ''
+      } placeholder:text-normal border border-solid border-grey-1 placeholder:text-base placeholder:text-grey-5 focus:border-colorPrimary-1 focus:placeholder:text-transparent`}
       required={true}
       autoComplete="off"
       onChange={onChange}
       value={value}
     />
-  );
-};
+  )
+}
 
-export { Input };
+export { Input }

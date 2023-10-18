@@ -1,28 +1,28 @@
-import { formatDate } from "@/utils/formatDate";
-import { ITransaction } from "@/interfaces";
+import { formatDate } from '@/utils/formatDate'
+import { ITransaction } from '@/interfaces'
 
 const Transaction = ({ transaction }: ITransaction) => {
   return (
-    <div className="w-full max-w-1119 h-66 flex flex-row justify-between items-center bg-grey-3 py-5 px-8 mb-2 rounded-def max-sm:h-140 max-sm:flex-col max-sm:px-5 max-sm:mb-3">
-      <div className="w-full flex max-sm:flex-col max-sm:gap-y-1.5">
-        <h2 className="w-full max-w-500 min-w-200 flex items-center font-normal text-base text-grey-7">
+    <div className="mb-2 flex h-66 w-full max-w-1119 flex-row items-center justify-between rounded-def bg-grey-3 px-8 py-5 max-sm:mb-3 max-sm:h-140 max-sm:flex-col max-sm:px-5">
+      <div className="flex w-full max-sm:flex-col max-sm:gap-y-1.5">
+        <h2 className="flex w-full min-w-200 max-w-500 items-center text-base font-normal text-grey-7">
           {transaction.description}
         </h2>
         <p
-          className={`w-full max-w-200 min-w-100 flex items-center font-normal text-base ${
-            transaction.option === "Expenses"
-              ? "text-red-1"
-              : "text-colorPrimary-1"
-          } max-sm:font-bold max-sm:text-xl`}
+          className={`flex w-full min-w-100 max-w-200 items-center text-base font-normal ${
+            transaction.option === 'Expenses'
+              ? 'text-red-1'
+              : 'text-colorPrimary-1'
+          } max-sm:text-xl max-sm:font-bold`}
         >
-          {transaction.option === "Expenses"
+          {transaction.option === 'Expenses'
             ? `- R$ ${transaction.price}`
             : `R$ ${transaction.price}`}
         </p>
       </div>
 
-      <div className="w-full max-w-332 flex flex-row justify-between items-center max-sm:max-w-none">
-        <p className="w-full max-w-240 flex items-center font-normal text-base text-grey-5 max-sm:gap-x-1">
+      <div className="flex w-full max-w-332 flex-row items-center justify-between max-sm:max-w-none">
+        <p className="flex w-full max-w-240 items-center text-base font-normal text-grey-5 max-sm:gap-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -40,7 +40,7 @@ const Transaction = ({ transaction }: ITransaction) => {
           </svg>
           {transaction.category}
         </p>
-        <p className="w-full max-w-92 flex justify-end items-center font-normal text-base text-grey-5 max-sm:max-w-110 max-sm:gap-x-1">
+        <p className="flex w-full max-w-92 items-center justify-end text-base font-normal text-grey-5 max-sm:max-w-110 max-sm:gap-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -78,7 +78,7 @@ const Transaction = ({ transaction }: ITransaction) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { Transaction };
+export { Transaction }

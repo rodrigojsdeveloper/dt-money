@@ -1,10 +1,10 @@
-"use client";
-import { TransactionContext } from "@/contexts/transaction.context";
-import { ModalBackground } from "./ModalBackground";
-import { useContext, useEffect } from "react";
-import { MessageEmpty } from "./MessageEmpty";
-import { Transaction } from "./Transaction";
-import { Loading } from "./Loading";
+'use client'
+import { TransactionContext } from '@/contexts/transaction.context'
+import { ModalBackground } from './ModalBackground'
+import { useContext, useEffect } from 'react'
+import { MessageEmpty } from './MessageEmpty'
+import { Transaction } from './Transaction'
+import { Loading } from './Loading'
 
 const List = () => {
   const {
@@ -17,33 +17,33 @@ const List = () => {
     paginatedTransactions,
     filteredTransactions,
     loading,
-  } = useContext(TransactionContext);
+  } = useContext(TransactionContext)
 
   useEffect(() => {
-    setDisabledPreviousPage(currentPage === 1);
+    setDisabledPreviousPage(currentPage === 1)
     setDisabledNextPage(
-      currentPage * transactionsPerPage >= filteredTransactions.length
-    );
+      currentPage * transactionsPerPage >= filteredTransactions.length,
+    )
   }, [
     currentPage,
     filteredTransactions,
     setDisabledNextPage,
     setDisabledPreviousPage,
     transactionsPerPage,
-  ]);
+  ])
 
   const totalPages = Math.ceil(
-    filteredTransactions.length / transactionsPerPage
-  );
+    filteredTransactions.length / transactionsPerPage,
+  )
 
-  const currentPageSpans = [];
+  const currentPageSpans = []
   for (let i = 1; i <= totalPages; i++) {
-    currentPageSpans.push(i);
+    currentPageSpans.push(i)
   }
 
   return (
     <div>
-      <menu className="w-full max-w-1119 px-6 mx-auto">
+      <menu className="mx-auto w-full max-w-1119 px-6">
         {loading ? (
           <ModalBackground isLoading="max-sm:items-center">
             <Loading />
@@ -57,7 +57,7 @@ const List = () => {
         )}
       </menu>
 
-      <div className="w-full max-w-352 flex flex-row justify-center items-center my-10 mx-auto">
+      <div className="mx-auto my-10 flex w-full max-w-352 flex-row items-center justify-center">
         {currentPage === 1 ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const List = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            className="cursor-pointer mr-2"
+            className="mr-2 cursor-pointer"
             onClick={() => handlePreviousPage()}
           >
             <path
@@ -96,11 +96,11 @@ const List = () => {
         {currentPageSpans.map((index) => (
           <span
             key={index}
-            className={`w-full max-w-40 h-40 flex justify-center items-center ${
+            className={`flex h-40 w-full max-w-40 items-center justify-center ${
               currentPage === index
-                ? "bg-colorPrimary-1 text-white"
-                : "bg-grey-4 text-grey-6"
-            }  font-bold text-base mx-1 rounded-def`}
+                ? 'bg-colorPrimary-1 text-white'
+                : 'bg-grey-4 text-grey-6'
+            }  mx-1 rounded-def text-base font-bold`}
           >
             {index}
           </span>
@@ -113,7 +113,7 @@ const List = () => {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            className="cursor-pointer ml-2"
+            className="ml-2 cursor-pointer"
             onClick={() => handleNextPage()}
           >
             <path
@@ -142,7 +142,7 @@ const List = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { List };
+export { List }

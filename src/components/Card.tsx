@@ -1,6 +1,6 @@
-"use client";
-import { ICardProps } from "@/interfaces";
-import { PropsWithChildren } from "react";
+'use client'
+import { ICardProps } from '@/interfaces'
+import { PropsWithChildren } from 'react'
 
 const Card = ({
   title,
@@ -11,22 +11,22 @@ const Card = ({
 }: PropsWithChildren<ICardProps>) => {
   return (
     <div
-      className={`w-full max-w-352 min-w-280 h-137 ${
-        background ? background : "bg-grey-4"
-      } py-6 px-8 rounded-def max-sm:h-150`}
+      className={`h-137 w-full min-w-280 max-w-352 ${
+        background || 'bg-grey-4'
+      } rounded-def px-8 py-6 max-sm:h-150`}
     >
-      <div className="w-full flex flex-row justify-between mb-3">
-        <p className="font-normal text-base text-grey-7">{title}</p>
+      <div className="mb-3 flex w-full flex-row justify-between">
+        <p className="text-base font-normal text-grey-7">{title}</p>
 
         {children}
       </div>
 
-      <p className="font-bold text-32 text-grey-8 max-sm:text-2xl max-sm:mb-1">
-        R$ {value.toLocaleString("pt-BR")}
+      <p className="text-32 font-bold text-grey-8 max-sm:mb-1 max-sm:text-2xl">
+        R$ {value.toLocaleString('pt-BR')}
       </p>
-      <p className="font-normal text-sm text-grey-6 sm:hidden">{message}</p>
+      <p className="text-sm font-normal text-grey-6 sm:hidden">{message}</p>
     </div>
-  );
-};
+  )
+}
 
-export { Card };
+export { Card }

@@ -1,24 +1,24 @@
-"use client";
-import { TransactionContext } from "@/contexts/transaction.context";
-import { formatLastDate } from "@/utils/formatDate";
-import { useContext } from "react";
-import { Card } from "./Card";
+'use client'
+import { TransactionContext } from '@/contexts/transaction.context'
+import { formatLastDate } from '@/utils/formatDate'
+import { useContext } from 'react'
+import { Card } from './Card'
 
 const Navigation = () => {
   const { total, totalIncome, totalExpenses, handleLastTransaction } =
-    useContext(TransactionContext);
+    useContext(TransactionContext)
 
   return (
-    <div className="w-full max-w-1119 flex flex-row justify-between items-center gap-x-4 px-6 -mt-20 mx-auto overflow-auto scrollbar-hide max-sm:-mt-24">
+    <div className="scrollbar-hide mx-auto -mt-20 flex w-full max-w-1119 flex-row items-center justify-between gap-x-4 overflow-auto px-6 max-sm:-mt-24">
       <Card
         title="Income"
         value={totalIncome}
         message={
-          handleLastTransaction("Income")
+          handleLastTransaction('Income')
             ? `Last income in ${formatLastDate(
-                String(handleLastTransaction("Income"))
+                String(handleLastTransaction('Income')),
               )}`
-            : ""
+            : ''
         }
       >
         <svg
@@ -52,11 +52,11 @@ const Navigation = () => {
         title="Expenses"
         value={totalExpenses}
         message={
-          handleLastTransaction("Expenses")
+          handleLastTransaction('Expenses')
             ? `Last expense in ${formatLastDate(
-                String(handleLastTransaction("Expenses"))
+                String(handleLastTransaction('Expenses')),
               )}`
-            : ""
+            : ''
         }
       >
         <svg
@@ -91,11 +91,11 @@ const Navigation = () => {
         background="bg-colorPrimary-2"
         value={total}
         message={
-          handleLastTransaction("Total")
+          handleLastTransaction('Total')
             ? `Last transaction on ${formatLastDate(
-                String(handleLastTransaction("Total"))
+                String(handleLastTransaction('Total')),
               )}`
-            : ""
+            : ''
         }
       >
         <svg
@@ -120,7 +120,7 @@ const Navigation = () => {
         </svg>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export { Navigation };
+export { Navigation }
