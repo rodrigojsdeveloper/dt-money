@@ -39,9 +39,9 @@ const Search = () => {
           isSearch={true}
           maxWidth="max-w-147"
           background="bg-grey-2"
-          color="text-color-primary-1"
-          active="active:bg-color-primary-4"
-          hoverBackground="hover:bg-color-primary-3"
+          color="text-colorPrimary-1"
+          active="active:bg-colorPrimary-4"
+          hoverBackground="hover:bg-colorPrimary-3"
           mediaGrey="max-sm:max-w-54 max-sm:p-0"
           isGrey={true}
           onClick={() => handleSearchTransactions(transaction)}

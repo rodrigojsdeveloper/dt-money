@@ -88,7 +88,7 @@ const Navigation = () => {
       </Card>
       <Card
         title="Total"
-        background="bg-color-primary-2"
+        background="bg-colorPrimary-2"
         value={total}
         message={
           handleLastTransaction("Total")

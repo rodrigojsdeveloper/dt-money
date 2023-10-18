@@ -98,7 +98,7 @@ const List = () => {
             key={index}
             className={`w-full max-w-40 h-40 flex justify-center items-center ${
               currentPage === index
-                ? "bg-color-primary-1 text-white"
+                ? "bg-colorPrimary-1 text-white"
                 : "bg-grey-4 text-grey-6"
             }  font-bold text-base mx-1 rounded-def`}
           >

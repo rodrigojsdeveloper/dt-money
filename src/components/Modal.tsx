@@ -57,7 +57,7 @@ const Modal = ({ setModal }: IModal) => {
   };
 
   return (
-    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default animate-form max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5 max-sm:animate-form-mobile">
+    <div className="w-full max-w-535 h-528 bg-grey-2 py-10 px-12 rounded-def shadow-default animate-form max-sm:max-w-none max-sm:h-478 max-sm:rounded-t-20 max-sm:py-7 max-sm:px-5 max-sm:animate-formMobile">
       <div className="w-full max-w-439 flex justify-end m-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ const Modal = ({ setModal }: IModal) => {
           <button
             type="button"
             className={`w-full max-w-211 h-58 flex justify-center items-center ${
-              prohibited ? "bg-color-primary-4" : "bg-grey-3 hover:bg-grey-4"
+              prohibited ? "bg-colorPrimary-4" : "bg-grey-3 hover:bg-grey-4"
             } rounded-def mr-4`}
             onClick={() => {
               setOption("Income");
@@ -203,9 +203,8 @@ const Modal = ({ setModal }: IModal) => {
         <Button
           type="submit"
           text="Register"
-          absolute="absolute"
           maxWidth="max-w-439"
-          hoverBorder="hover:border-color-primary-2"
+          hoverBorder="hover:border-colorPrimary-2"
         />
       </form>
     </div>

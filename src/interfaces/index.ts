@@ -7,13 +7,12 @@ export interface IButtonProps {
   maxWidth?: "max-w-147" | "max-w-152" | "max-w-439";
   height?: "h-54";
   background?: "bg-grey-2";
-  color?: "text-color-primary-1";
-  hoverBackground?: "hover:bg-color-primary-3";
-  hoverBorder?: "hover:border-color-primary-2";
-  active?: "active:bg-color-primary-4";
+  color?: "text-colorPrimary-1";
+  hoverBackground?: "hover:bg-colorPrimary-3";
+  hoverBorder?: "hover:border-colorPrimary-2";
+  active?: "active:bg-colorPrimary-4";
   media?: "max-sm:h-38 max-sm:p-0 max-sm:max-w-130";
   mediaGrey?: "max-sm:max-w-54 max-sm:p-0";
-  absolute?: "absolute";
   isGrey?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -72,6 +71,6 @@ export interface IModal {
 export interface ICardProps {
   title: "Income" | "Expenses" | "Total";
   value: number;
-  background?: "bg-color-primary-2";
+  background?: "bg-colorPrimary-2";
   message: string;
 }

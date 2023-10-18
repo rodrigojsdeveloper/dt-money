@@ -12,7 +12,7 @@ const Transaction = ({ transaction }: ITransaction) => {
           className={`w-full max-w-200 min-w-100 flex items-center font-normal text-base ${
             transaction.option === "Expenses"
               ? "text-red-1"
-              : "text-color-primary-1"
+              : "text-colorPrimary-1"
           } max-sm:font-bold max-sm:text-xl`}
         >
           {transaction.option === "Expenses"

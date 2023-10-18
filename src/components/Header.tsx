@@ -99,7 +99,7 @@ const Header = () => {
             type="button"
             maxWidth="max-w-147"
             text="New transaction"
-            hoverBorder="hover:border-color-primary-2"
+            hoverBorder="hover:border-colorPrimary-2"
             media="max-sm:h-38 max-sm:p-0 max-sm:max-w-130"
             onClick={() => setModal(true)}
           />

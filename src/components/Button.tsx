@@ -15,20 +15,19 @@ const Button = ({
   mediaGrey,
   isGrey,
   onClick,
-  absolute,
 }: IButtonProps) => {
   return (
     <button
       onClick={onClick}
       type={type}
-      className={`w-full ${absolute ? absolute : ""} ${
-        maxWidth ? maxWidth : "max-w-none"
-      } ${height ? height : "h-50"} flex justify-center items-center ${
-        background ? background : "bg-color-primary-1"
-      } border border-solid border-color-primary-1 font-bold text-sm ${
+      className={`w-full ${maxWidth ? maxWidth : "max-w-none"} ${
+        height ? height : "h-50"
+      } flex justify-center items-center ${
+        background ? background : "bg-colorPrimary-1"
+      } border border-solid border-colorPrimary-1 font-bold text-sm ${
         color ? color : "text-white"
       } rounded-def p-3 ${
-        hoverBackground ? hoverBackground : "hover:bg-color-primary-2"
+        hoverBackground ? hoverBackground : "hover:bg-colorPrimary-2"
       } ${hoverBorder ? hoverBorder : ""} ${active ? active : ""} ${
         media ? media : ""
       } ${mediaGrey ? mediaGrey : ""}`}

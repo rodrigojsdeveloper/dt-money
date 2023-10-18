@@ -112,7 +112,7 @@ const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     return lastTransaction[0]?.created_at;
   };
 
-  const transactionContextData = {
+  const transactionContextData: ITransactionContextData = {
     transactions,
     addTransaction,
     disabledNextPage,
