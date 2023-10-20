@@ -59,7 +59,6 @@ const config: Config = {
       },
       height: {
         38: '38px',
-        40: '40px',
         49: '49px',
         50: '50px',
         54: '54px',

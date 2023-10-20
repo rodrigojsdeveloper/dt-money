@@ -96,7 +96,7 @@ const List = () => {
         {currentPageSpans.map((index) => (
           <span
             key={index}
-            className={`flex h-40 w-full max-w-40 items-center justify-center ${
+            className={`flex h-10 w-full max-w-40 items-center justify-center ${
               currentPage === index
                 ? 'bg-colorPrimary-1 text-white'
                 : 'bg-grey-4 text-grey-6'
