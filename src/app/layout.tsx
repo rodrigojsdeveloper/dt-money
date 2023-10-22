@@ -1,7 +1,14 @@
 import { PropsWithChildren } from 'react'
+import { Roboto } from 'next/font/google'
 import type { Metadata } from 'next'
 import Providers from '@/contexts'
 import './globals.css'
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-roboto',
+})
 
 export const metadata: Metadata = {
   title: 'DT Money',
@@ -11,14 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto.variable} font-roboto`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/favicon.svg" type="image/x-icon" />
       </head>
       <body>

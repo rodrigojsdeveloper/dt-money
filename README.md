@@ -40,7 +40,7 @@ npm run dev
 You can access the DT Money application at the following link:
 
 ```
-https://dt-money-plus.vercel.app/
+https://dt-money-plus.vercel.app
 ```
 
 <br/>
