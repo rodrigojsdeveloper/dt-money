@@ -29,4 +29,4 @@ const Card = ({
   )
 }
 
-export { Card }
+export default Card

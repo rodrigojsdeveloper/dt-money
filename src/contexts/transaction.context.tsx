@@ -5,10 +5,10 @@ import { ITransactionProps, ITransactionContextData } from '../interfaces'
 const TransactionContext = createContext({} as ITransactionContextData)
 
 const TransactionContextProvider = ({ children }: PropsWithChildren) => {
-  const [transactions, setTransactions] = useState<Array<ITransactionProps>>([])
+  const [transactions, setTransactions] = useState<ITransactionProps[]>([])
 
   const [filteredTransactions, setFilteredTransactions] = useState<
-    Array<ITransactionProps>
+    ITransactionProps[]
   >([])
 
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -21,7 +21,7 @@ const TransactionContextProvider = ({ children }: PropsWithChildren) => {
   const [loading, setLoading] = useState(true)
 
   const saveTransactionsToLocalStorage = (
-    transactions: Array<ITransactionProps>,
+    transactions: ITransactionProps[],
   ) => {
     localStorage.setItem('DT Money: transactions', JSON.stringify(transactions))
   }

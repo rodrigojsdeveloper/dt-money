@@ -15,6 +15,7 @@ export interface IButtonProps {
   mediaGrey?: 'max-sm:max-w-54 max-sm:p-0'
   isGrey?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
+  ariaLabel?: string
 }
 
 export interface InputProps {
@@ -40,7 +41,7 @@ export interface ITransaction {
 }
 
 export interface ITransactionContextData {
-  transactions: Array<ITransactionProps>
+  transactions: ITransactionProps[]
   addTransaction: (transaction: ITransactionProps) => void
   disabledNextPage: boolean
   disabledPreviousPage: boolean
@@ -50,12 +51,12 @@ export interface ITransactionContextData {
   setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>
   currentPage: number
   transactionsPerPage: number
-  paginatedTransactions: Array<ITransactionProps>
+  paginatedTransactions: ITransactionProps[]
   total: number
   totalIncome: number
   totalExpenses: number
   handleSearchTransactions: (description: string) => void
-  filteredTransactions: Array<ITransactionProps>
+  filteredTransactions: ITransactionProps[]
   handleLastTransaction: (option: string) => Date
   loading: boolean
 }

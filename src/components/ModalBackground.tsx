@@ -14,4 +14,4 @@ const ModalBackground = ({
   )
 }
 
-export { ModalBackground }
+export default ModalBackground

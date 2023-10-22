@@ -81,4 +81,4 @@ const Transaction = ({ transaction }: ITransaction) => {
   )
 }
 
-export { Transaction }
+export default Transaction

@@ -1,10 +1,10 @@
 'use client'
 import { TransactionContext } from '@/contexts/transaction.context'
-import { ModalBackground } from './ModalBackground'
+import ModalBackground from './ModalBackground'
 import { useContext, useEffect } from 'react'
-import { MessageEmpty } from './MessageEmpty'
-import { Transaction } from './Transaction'
-import { Loading } from './Loading'
+import MessageEmpty from './MessageEmpty'
+import Transaction from './Transaction'
+import Loading from './Loading'
 
 const List = () => {
   const {
@@ -145,4 +145,4 @@ const List = () => {
   )
 }
 
-export { List }
+export default List

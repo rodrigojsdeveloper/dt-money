@@ -5,4 +5,4 @@ const Providers = ({ children }: PropsWithChildren) => {
   return <TransactionContextProvider>{children}</TransactionContextProvider>
 }
 
-export { Providers }
+export default Providers

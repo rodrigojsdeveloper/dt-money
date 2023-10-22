@@ -15,11 +15,13 @@ const Button = ({
   mediaGrey,
   isGrey,
   onClick,
+  ariaLabel,
 }: IButtonProps) => {
   return (
     <button
-      onClick={onClick}
       type={type}
+      onClick={onClick}
+      aria-label={ariaLabel}
       className={`w-full ${maxWidth || 'max-w-none'} ${
         height || 'h-50'
       } flex items-center justify-center ${
@@ -59,4 +61,4 @@ const Button = ({
   )
 }
 
-export { Button }
+export default Button

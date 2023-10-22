@@ -9,4 +9,4 @@ const transactionSchema = z.object({
   created_at: z.date(),
 })
 
-export { transactionSchema }
+export default transactionSchema

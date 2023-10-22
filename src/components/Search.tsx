@@ -1,8 +1,8 @@
 'use client'
 import { TransactionContext } from '@/contexts/transaction.context'
 import { useContext, useState } from 'react'
-import { Button } from './Button'
-import { Input } from './Input'
+import Button from './Button'
+import Input from './Input'
 
 const Search = () => {
   const { filteredTransactions, handleSearchTransactions } =
@@ -45,10 +45,11 @@ const Search = () => {
           mediaGrey="max-sm:max-w-54 max-sm:p-0"
           isGrey={true}
           onClick={() => handleSearchTransactions(transaction)}
+          ariaLabel="search"
         />
       </div>
     </div>
   )
 }
 
-export { Search }
+export default Search

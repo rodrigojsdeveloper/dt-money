@@ -2,7 +2,7 @@
 import { TransactionContext } from '@/contexts/transaction.context'
 import { formatLastDate } from '@/utils/formatDate'
 import { useContext } from 'react'
-import { Card } from './Card'
+import Card from './Card'
 
 const Navigation = () => {
   const { total, totalIncome, totalExpenses, handleLastTransaction } =
@@ -123,4 +123,4 @@ const Navigation = () => {
   )
 }
 
-export { Navigation }
+export default Navigation
