@@ -57,7 +57,7 @@ const Modal = ({ setModal }: IModal) => {
   }
 
   return (
-    <div className="h-528 w-full max-w-535 animate-form rounded-def bg-grey-2 px-12 py-10 shadow-default max-sm:h-478 max-sm:max-w-none max-sm:animate-formMobile max-sm:rounded-t-20 max-sm:px-5 max-sm:py-7">
+    <div className="h-528 w-full max-w-535 animate-form rounded-def bg-grey-2 px-12 py-10 shadow-default max-sm:fixed max-sm:h-478 max-sm:max-w-none max-sm:animate-formMobile max-sm:rounded-t-20 max-sm:px-5 max-sm:py-7">
       <div className="m-auto flex w-full max-w-439 justify-end">
         <svg
           xmlns="http://www.w3.org/2000/svg"
