@@ -33,7 +33,6 @@ const config: Config = {
           1: '#F75A68',
           2: 'rgb(247, 90, 104, 0.16)',
         },
-        transparent: 'transparent',
         shadow: '#00000064',
       },
       maxWidth: {

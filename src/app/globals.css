@@ -18,7 +18,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
   color: #ffffff;
   background-color: #202024;
 }
