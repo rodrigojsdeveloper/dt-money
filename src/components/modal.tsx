@@ -3,8 +3,8 @@
 import { useContext, useState } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
 import { transactionSchema } from '@/schemas/transaction.schema'
-import { Button } from './button-1'
-import { Input } from './input-1'
+import { Button } from './button'
+import { Input } from './input'
 import * as zod from 'zod'
 import { cn } from '@/utils/cn'
 import { ArrowDownCircle, ArrowUpCircle, X } from 'lucide-react'
@@ -72,7 +72,7 @@ export const Modal = () => {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-20 bg-shadow" />
-        <Dialog.Content className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] fixed left-1/2 top-1/2 z-30 flex w-[95%] max-w-[33.438rem] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-def bg-grey-2 px-5 py-7 shadow-default duration-200 sm:px-12 sm:py-10">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-30 flex w-[95%] max-w-[33.438rem] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-def bg-grey-2 px-5 py-7 shadow-default duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:px-12 sm:py-10">
           <Dialog.Close className="m-auto flex w-full max-w-[27.438rem] justify-end">
             <X className="size-6 cursor-pointer text-[#7C7C8A]" />
           </Dialog.Close>

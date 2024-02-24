@@ -2,8 +2,8 @@
 
 import { useContext, useState } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
-import { Button } from './button-1'
-import { Input } from './input-1'
+import { Button } from './button'
+import { Input } from './input'
 
 export const Search = () => {
   const { filteredTransactions, handleSearchTransactions } =

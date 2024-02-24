@@ -1,4 +1,4 @@
-import { Modal } from './modal-1'
+import { Modal } from './modal'
 
 export const Header = () => {
   return (

@@ -4,8 +4,8 @@ import { useContext, useEffect } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
 import ModalBackground from './modal-background'
 import { MessageEmpty } from './message-empty'
-import { Transaction } from './transaction-1'
-import { Loading } from './loading-1'
+import { Transaction } from './transaction'
+import { Loading } from './loading'
 import { cn } from '@/utils/cn'
 
 const List = () => {
