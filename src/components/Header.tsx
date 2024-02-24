@@ -14,15 +14,15 @@ const Header = () => {
           <Modal setModal={setModal} />
         </ModalBackground>
       ) : null}
-      <header className="m-auto flex h-[13.25rem] w-full flex-row justify-center bg-grey-1 pt-10 max-sm:h-[12.5rem] max-sm:pt-6">
-        <div className="flex h-[3.125rem] w-full max-w-[69.988rem] flex-row justify-between px-6 max-sm:h-[2.375rem] max-sm:items-center">
+      <header className="m-auto flex h-[12.5rem] w-full flex-row justify-center bg-grey-1 pt-6 sm:h-[13.25rem] sm:pt-10">
+        <div className="flex h-[2.375rem] w-full max-w-[69.988rem] flex-row items-center justify-between px-6 sm:h-[3.125rem] sm:items-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="173"
             height="42"
             viewBox="0 0 173 42"
             fill="none"
-            className="max-sm:hidden"
+            className="hidden sm:block"
           >
             <path
               opacity="0.5"

@@ -46,7 +46,7 @@ const List = () => {
     <div>
       <menu className="mx-auto w-full max-w-[69.988rem] px-6">
         {loading ? (
-          <ModalBackground isLoading="max-sm:items-center">
+          <ModalBackground>
             <Loading />
           </ModalBackground>
         ) : filteredTransactions.length > 0 ? (

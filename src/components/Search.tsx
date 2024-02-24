@@ -13,7 +13,7 @@ const Search = () => {
   const transactionsLength = filteredTransactions.length
 
   return (
-    <div className="mx-auto mb-6 mt-16 flex w-full max-w-[69.988rem] flex-col max-sm:mb-3 max-sm:mt-4">
+    <div className="mx-auto mb-3 mt-4 flex w-full max-w-[69.988rem] flex-col sm:mb-6 sm:mt-16">
       {transactionsLength > 0 ? (
         <div className="mb-3 flex w-full flex-row items-center justify-between px-6 sm:hidden">
           <p className="text-lg font-normal text-grey-7">Transactions</p>

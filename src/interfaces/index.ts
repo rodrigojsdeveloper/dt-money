@@ -59,6 +59,7 @@ export interface ITransactionContextData {
   filteredTransactions: ITransactionProps[]
   handleLastTransaction: (option: string) => Date
   loading: boolean
+  handleMessage: (titleLower: string, titleUpper: string) => string
 }
 
 export interface IsLoadingProps {

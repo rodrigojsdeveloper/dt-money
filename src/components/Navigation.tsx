@@ -1,25 +1,18 @@
 'use client'
 import { TransactionContext } from '@/contexts/transaction.context'
-import { formatLastDate } from '@/utils/format-date'
 import { useContext } from 'react'
 import Card from './Card'
 
 const Navigation = () => {
-  const { total, totalIncome, totalExpenses, handleLastTransaction } =
+  const { total, totalIncome, totalExpenses, handleMessage } =
     useContext(TransactionContext)
 
   return (
-    <div className="scrollbar-hide mx-auto -mt-20 flex w-full max-w-[69.988rem] flex-row items-center justify-between gap-x-4 overflow-auto px-6 max-sm:-mt-24">
+    <div className="scrollbar-hide mx-auto -mt-24 flex w-full max-w-[69.988rem] flex-row items-center justify-between gap-x-4 overflow-auto px-6 sm:-mt-20">
       <Card
         title="Income"
         value={totalIncome}
-        message={
-          handleLastTransaction('Income')
-            ? `Last income in ${formatLastDate(
-              String(handleLastTransaction('Income')),
-            )}`
-            : ''
-        }
+        message={handleMessage('income', 'Income')}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,13 +44,7 @@ const Navigation = () => {
       <Card
         title="Expenses"
         value={totalExpenses}
-        message={
-          handleLastTransaction('Expenses')
-            ? `Last expense in ${formatLastDate(
-              String(handleLastTransaction('Expenses')),
-            )}`
-            : ''
-        }
+        message={handleMessage('expenses', 'Expenses')}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -90,13 +77,7 @@ const Navigation = () => {
         title="Total"
         background="bg-colorPrimary-2"
         value={total}
-        message={
-          handleLastTransaction('Total')
-            ? `Last transaction on ${formatLastDate(
-              String(handleLastTransaction('Total')),
-            )}`
-            : ''
-        }
+        message={handleMessage('transaction', 'Total')}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -4,14 +4,14 @@ import { cn } from '@/utils/cn'
 
 const Transaction = ({ transaction }: ITransaction) => {
   return (
-    <div className="mb-2 flex h-[4.125rem] w-full max-w-[69.988rem] flex-row items-center justify-between rounded-def bg-grey-3 px-8 py-5 max-sm:mb-3 max-sm:h-[8.75rem] max-sm:flex-col max-sm:px-5">
-      <div className="flex w-full max-sm:flex-col max-sm:gap-y-1.5">
+    <div className="mb-3 flex h-[8.75rem] w-full max-w-[69.988rem] flex-col items-center justify-between rounded-def bg-grey-3 px-5 py-5 sm:mb-2 sm:h-[4.125rem] sm:flex-row sm:px-8">
+      <div className="flex w-full flex-col gap-y-1.5 sm:flex-row sm:gap-0">
         <h2 className="flex w-full min-w-[12.5rem] max-w-[31.25rem] items-center text-base font-normal text-grey-7">
           {transaction.description}
         </h2>
         <p
           className={cn(
-            'flex w-full min-w-[6.25rem] max-w-[12.5rem] items-center text-base font-normal max-sm:text-xl max-sm:font-bold',
+            'flex w-full min-w-[6.25rem] max-w-[12.5rem] items-center text-xl font-bold sm:text-base sm:font-normal',
             transaction.option === 'Expenses'
               ? 'text-red-1'
               : 'text-colorPrimary-1',
@@ -23,8 +23,8 @@ const Transaction = ({ transaction }: ITransaction) => {
         </p>
       </div>
 
-      <div className="flex w-full max-w-[20.75rem] flex-row items-center justify-between max-sm:max-w-none">
-        <p className="max-w-60 flex w-full items-center text-base font-normal text-grey-5 max-sm:gap-x-1">
+      <div className="flex w-full flex-row items-center justify-between sm:max-w-[20.75rem]">
+        <p className="max-w-60 flex w-full items-center gap-0 gap-x-1 text-base font-normal text-grey-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -42,7 +42,7 @@ const Transaction = ({ transaction }: ITransaction) => {
           </svg>
           {transaction.category}
         </p>
-        <p className="flex w-full max-w-[5.75rem] items-center justify-end text-base font-normal text-grey-5 max-sm:max-w-[6.875rem] max-sm:gap-x-1">
+        <p className="flex w-full max-w-[6.875rem] items-center justify-end gap-0 gap-x-1 text-base font-normal text-grey-5 sm:max-w-[5.75rem]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

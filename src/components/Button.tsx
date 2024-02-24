@@ -43,7 +43,7 @@ const Button = ({
           height="20"
           viewBox="0 0 20 20"
           fill="none"
-          className="mr-3 max-sm:mr-0"
+          className="mr-0 sm:mr-3"
         >
           <path
             fillRule="evenodd"
@@ -60,7 +60,7 @@ const Button = ({
         </svg>
       ) : null}
 
-      <p className={cn(isGrey ? 'max-sm:hidden' : '')}>{text}</p>
+      <p className={cn(isGrey ? 'hidden sm:block' : '')}>{text}</p>
     </button>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { ITransactionProps, ITransactionContextData } from '../interfaces'
+import { formatLastDate } from '@/utils/format-date'
 
 const TransactionContext = createContext({} as ITransactionContextData)
 
@@ -104,6 +105,14 @@ const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     return lastTransaction[0]?.created_at
   }
 
+  const handleMessage = (titleLower: string, titleUpper: string) => {
+    const message =
+      `Last ${titleLower} in ` +
+      formatLastDate(String(handleLastTransaction(titleUpper)))
+
+    return handleLastTransaction(titleUpper) ? message : ''
+  }
+
   const transactionContextData: ITransactionContextData = {
     transactions,
     addTransaction,
@@ -123,6 +132,7 @@ const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     filteredTransactions,
     handleLastTransaction,
     loading,
+    handleMessage,
   }
 
   return (
