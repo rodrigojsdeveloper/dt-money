@@ -57,8 +57,8 @@ const Modal = ({ setModal }: IModal) => {
   }
 
   return (
-    <div className="w-full max-w-535 animate-form rounded-def bg-grey-2 px-5 py-7 shadow-default sm:px-12 sm:py-10">
-      <div className="m-auto flex w-full max-w-439 justify-end">
+    <div className="w-full max-w-[33.438rem] animate-form rounded-def bg-grey-2 px-5 py-7 shadow-default sm:px-12 sm:py-10">
+      <div className="m-auto flex w-full max-w-[27.438rem] justify-end">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -84,7 +84,7 @@ const Modal = ({ setModal }: IModal) => {
       </div>
 
       <form
-        className="relative m-auto w-full max-w-439"
+        className="relative m-auto w-full max-w-[27.438rem]"
         onSubmit={(e) => {
           e.preventDefault()
           onSubmitFunction()
@@ -94,7 +94,7 @@ const Modal = ({ setModal }: IModal) => {
           New transaction
         </h2>
 
-        <div className="flex h-186 w-full flex-col justify-between sm:h-194">
+        <div className="flex h-[11.625rem] w-full flex-col justify-between sm:h-[12.125rem]">
           <Input
             name="description"
             value={formData.description}
@@ -119,7 +119,7 @@ const Modal = ({ setModal }: IModal) => {
         <div className="mb-10 mt-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
           <button
             type="button"
-            className={`flex h-58 w-full items-center justify-center sm:max-w-211 ${prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
+            className={`flex h-[3.625rem] w-full items-center justify-center sm:max-w-[13.219rem] ${prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
               } rounded-def`}
             onClick={() => {
               setOption('Income')
@@ -159,7 +159,7 @@ const Modal = ({ setModal }: IModal) => {
 
           <button
             type="button"
-            className={`flex h-58 w-full items-center justify-center sm:max-w-211 ${exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
+            className={`flex h-[3.625rem] w-full items-center justify-center sm:max-w-[13.219rem] ${exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
               } rounded-def`}
             onClick={() => {
               setOption('Expenses')
@@ -201,7 +201,7 @@ const Modal = ({ setModal }: IModal) => {
         <Button
           type="submit"
           text="Register"
-          maxWidth="max-w-439"
+          maxWidth="max-w-[27.438rem]"
           hoverBorder="hover:border-colorPrimary-2"
         />
       </form>

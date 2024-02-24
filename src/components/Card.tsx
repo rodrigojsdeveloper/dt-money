@@ -11,9 +11,9 @@ const Card = ({
 }: PropsWithChildren<ICardProps>) => {
   return (
     <div
-      className={`h-137 w-full min-w-280 max-w-352 ${
+      className={`h-[8.563rem] w-full min-w-[17.5rem] max-w-[22rem] ${
         background || 'bg-grey-4'
-      } rounded-def px-8 py-6 max-sm:h-150`}
+      } rounded-def px-8 py-6 max-sm:h-[9.375rem]`}
     >
       <div className="mb-3 flex w-full flex-row justify-between">
         <p className="text-base font-normal text-grey-7">{title}</p>

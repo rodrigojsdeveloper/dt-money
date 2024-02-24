@@ -23,7 +23,7 @@ const Button = ({
       onClick={onClick}
       aria-label={ariaLabel}
       className={`w-full ${maxWidth || 'max-w-none'} ${
-        height || 'h-50'
+        height || 'h-[3.125rem]'
       } flex items-center justify-center ${
         background || 'bg-colorPrimary-1'
       } border border-solid border-colorPrimary-1 text-sm font-bold ${

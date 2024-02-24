@@ -9,7 +9,7 @@ const Navigation = () => {
     useContext(TransactionContext)
 
   return (
-    <div className="scrollbar-hide mx-auto -mt-20 flex w-full max-w-1119 flex-row items-center justify-between gap-x-4 overflow-auto px-6 max-sm:-mt-24">
+    <div className="scrollbar-hide mx-auto -mt-20 flex w-full max-w-[69.988rem] flex-row items-center justify-between gap-x-4 overflow-auto px-6 max-sm:-mt-24">
       <Card
         title="Income"
         value={totalIncome}

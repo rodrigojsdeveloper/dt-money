@@ -4,15 +4,15 @@ export interface IButtonProps {
   isSearch?: boolean
   text: string
   type?: 'button' | 'submit' | 'reset'
-  maxWidth?: 'max-w-147' | 'max-w-152' | 'max-w-439'
-  height?: 'h-54'
+  maxWidth?: 'max-w-[9.188rem]' | 'max-w-[27.438rem]'
+  height?: 'h-[3.375rem]'
   background?: 'bg-grey-2'
   color?: 'text-colorPrimary-1'
   hoverBackground?: 'hover:bg-colorPrimary-3'
   hoverBorder?: 'hover:border-colorPrimary-2'
   active?: 'active:bg-colorPrimary-4'
-  media?: 'max-sm:h-38 max-sm:p-0 max-sm:max-w-130'
-  mediaGrey?: 'max-sm:max-w-54 max-sm:p-0'
+  media?: 'max-sm:h-[2.375rem] max-sm:p-0 max-sm:max-w-[8.125rem]'
+  mediaGrey?: 'max-sm:max-w-[3.375rem] max-sm:p-0'
   isGrey?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   ariaLabel?: string

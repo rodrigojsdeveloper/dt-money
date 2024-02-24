@@ -14,8 +14,8 @@ const Header = () => {
           <Modal setModal={setModal} />
         </ModalBackground>
       ) : null}
-      <header className="m-auto flex h-212 w-full flex-row justify-center bg-grey-1 pt-10 max-sm:h-200 max-sm:pt-6">
-        <div className="flex h-50 w-full max-w-1119 flex-row justify-between px-6 max-sm:h-38 max-sm:items-center">
+      <header className="m-auto flex h-[13.25rem] w-full flex-row justify-center bg-grey-1 pt-10 max-sm:h-[12.5rem] max-sm:pt-6">
+        <div className="flex h-[3.125rem] w-full max-w-[69.988rem] flex-row justify-between px-6 max-sm:h-[2.375rem] max-sm:items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="173"
@@ -97,10 +97,10 @@ const Header = () => {
 
           <Button
             type="button"
-            maxWidth="max-w-147"
+            maxWidth="max-w-[9.188rem]"
             text="New transaction"
             hoverBorder="hover:border-colorPrimary-2"
-            media="max-sm:h-38 max-sm:p-0 max-sm:max-w-130"
+            media="max-sm:h-[2.375rem] max-sm:p-0 max-sm:max-w-[8.125rem]"
             onClick={() => setModal(true)}
           />
         </div>

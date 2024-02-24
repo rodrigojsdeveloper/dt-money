@@ -13,7 +13,7 @@ const Search = () => {
   const transactionsLength = filteredTransactions.length
 
   return (
-    <div className="mx-auto mb-6 mt-16 flex w-full max-w-1119 flex-col max-sm:mb-3 max-sm:mt-4">
+    <div className="mx-auto mb-6 mt-16 flex w-full max-w-[69.988rem] flex-col max-sm:mb-3 max-sm:mt-4">
       {transactionsLength > 0 ? (
         <div className="mb-3 flex w-full flex-row items-center justify-between px-6 sm:hidden">
           <p className="text-lg font-normal text-grey-7">Transactions</p>
@@ -35,14 +35,14 @@ const Search = () => {
         />
         <Button
           text="Search"
-          height="h-54"
+          height="h-[3.375rem]"
           isSearch={true}
-          maxWidth="max-w-147"
+          maxWidth="max-w-[9.188rem]"
           background="bg-grey-2"
           color="text-colorPrimary-1"
           active="active:bg-colorPrimary-4"
           hoverBackground="hover:bg-colorPrimary-3"
-          mediaGrey="max-sm:max-w-54 max-sm:p-0"
+          mediaGrey="max-sm:max-w-[3.375rem] max-sm:p-0"
           isGrey={true}
           onClick={() => handleSearchTransactions(transaction)}
           ariaLabel="search"

@@ -43,7 +43,7 @@ const List = () => {
 
   return (
     <div>
-      <menu className="mx-auto w-full max-w-1119 px-6">
+      <menu className="mx-auto w-full max-w-[69.988rem] px-6">
         {loading ? (
           <ModalBackground isLoading="max-sm:items-center">
             <Loading />
@@ -57,7 +57,7 @@ const List = () => {
         )}
       </menu>
 
-      <div className="mx-auto my-10 flex w-full max-w-352 flex-row items-center justify-center">
+      <div className="mx-auto my-10 flex w-full max-w-[22rem] flex-row items-center justify-center">
         {currentPage === 1 ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +96,10 @@ const List = () => {
         {currentPageSpans.map((index) => (
           <span
             key={index}
-            className={`flex h-10 w-full max-w-40 items-center justify-center ${
-              currentPage === index
+            className={`max-w-10 flex h-10 w-full items-center justify-center ${currentPage === index
                 ? 'bg-colorPrimary-1 text-white'
                 : 'bg-grey-4 text-grey-6'
-            }  mx-1 rounded-def text-base font-bold`}
+              }  mx-1 rounded-def text-base font-bold`}
           >
             {index}
           </span>
