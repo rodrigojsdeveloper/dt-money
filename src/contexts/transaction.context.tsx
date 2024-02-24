@@ -1,30 +1,23 @@
 'use client'
 
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
-import { ITransactionProps, ITransactionContextData } from '../interfaces'
+import { TransactionProps, TransactionContextData } from '../interfaces'
 import { formatLastDate } from '@/utils/format-date'
 
-export const TransactionContext = createContext({} as ITransactionContextData)
+export const TransactionContext = createContext({} as TransactionContextData)
 
 export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
-  const [transactions, setTransactions] = useState<ITransactionProps[]>([])
-
   const [filteredTransactions, setFilteredTransactions] = useState<
-    ITransactionProps[]
+    TransactionProps[]
   >([])
-
-  const [currentPage, setCurrentPage] = useState<number>(1)
-
+  const [transactions, setTransactions] = useState<TransactionProps[]>([])
   const [disabledNextPage, setDisabledNextPage] = useState<boolean>(false)
-
+  const [loading, setLoading] = useState<boolean>(true)
   const [disabledPreviousPage, setDisabledPreviousPage] =
     useState<boolean>(true)
+  const [currentPage, setCurrentPage] = useState<number>(1)
 
-  const [loading, setLoading] = useState(true)
-
-  const saveTransactionsToLocalStorage = (
-    transactions: ITransactionProps[],
-  ) => {
+  const saveTransactionsToLocalStorage = (transactions: TransactionProps[]) => {
     localStorage.setItem('DT Money: transactions', JSON.stringify(transactions))
   }
 
@@ -33,17 +26,7 @@ export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     return storedTransactions ? JSON.parse(storedTransactions) : []
   }
 
-  useEffect(() => {
-    setLoading(true)
-
-    const storedTransactions = loadTransactionsFromLocalStorage()
-    setTransactions(storedTransactions)
-    setFilteredTransactions(storedTransactions)
-
-    setLoading(false)
-  }, [])
-
-  const addTransaction = (transaction: ITransactionProps) => {
+  const addTransaction = (transaction: TransactionProps) => {
     const updatedTransactions = [transaction, ...transactions]
     setTransactions(updatedTransactions)
     setFilteredTransactions(updatedTransactions)
@@ -79,7 +62,7 @@ export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
 
   const handleSearchTransactions = (description: string) => {
     setFilteredTransactions(
-      transactions.filter((transaction: ITransactionProps) =>
+      transactions.filter((transaction: TransactionProps) =>
         transaction.description
           .toLowerCase()
           .includes(description.toLowerCase()),
@@ -94,7 +77,7 @@ export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
       filteredTransactions = transactions
     } else {
       filteredTransactions = transactions.filter(
-        (transaction: ITransactionProps) => transaction.option === option,
+        (transaction: TransactionProps) => transaction.option === option,
       )
     }
 
@@ -114,7 +97,17 @@ export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     return handleLastTransaction(titleUpper) ? message : ''
   }
 
-  const transactionContextData: ITransactionContextData = {
+  useEffect(() => {
+    setLoading(true)
+
+    const storedTransactions = loadTransactionsFromLocalStorage()
+    setTransactions(storedTransactions)
+    setFilteredTransactions(storedTransactions)
+
+    setLoading(false)
+  }, [])
+
+  const transactionContextData: TransactionContextData = {
     transactions,
     addTransaction,
     disabledNextPage,

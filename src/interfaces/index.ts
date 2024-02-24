@@ -1,19 +1,10 @@
 import React from 'react'
 
-export interface IButtonProps {
-  isSearch?: boolean
-  text: string
+export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset'
-  maxWidth?: 'max-w-[9.188rem]' | 'max-w-[27.438rem]'
-  height?: 'h-[3.375rem]'
-  background?: 'bg-grey-2'
-  color?: 'text-colorPrimary-1'
-  hoverBackground?: 'hover:bg-colorPrimary-3'
-  hoverBorder?: 'hover:border-colorPrimary-2'
-  active?: 'active:bg-colorPrimary-4'
-  media?: 'max-sm:h-[2.375rem] max-sm:p-0 max-sm:max-w-[8.125rem]'
-  mediaGrey?: 'max-sm:max-w-[3.375rem] max-sm:p-0'
-  isGrey?: boolean
+  text: string
+  className?: string
+  isSearch?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   ariaLabel?: string
 }
@@ -27,7 +18,7 @@ export interface InputProps {
   value?: string | number | readonly string[]
 }
 
-export interface ITransactionProps {
+export interface TransactionProps {
   id: string
   description: string
   price: string
@@ -37,12 +28,12 @@ export interface ITransactionProps {
 }
 
 export interface ITransaction {
-  transaction: ITransactionProps
+  transaction: TransactionProps
 }
 
-export interface ITransactionContextData {
-  transactions: ITransactionProps[]
-  addTransaction: (transaction: ITransactionProps) => void
+export interface TransactionContextData {
+  transactions: TransactionProps[]
+  addTransaction: (transaction: TransactionProps) => void
   disabledNextPage: boolean
   disabledPreviousPage: boolean
   handleNextPage: () => void
@@ -51,26 +42,18 @@ export interface ITransactionContextData {
   setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>
   currentPage: number
   transactionsPerPage: number
-  paginatedTransactions: ITransactionProps[]
+  paginatedTransactions: TransactionProps[]
   total: number
   totalIncome: number
   totalExpenses: number
   handleSearchTransactions: (description: string) => void
-  filteredTransactions: ITransactionProps[]
+  filteredTransactions: TransactionProps[]
   handleLastTransaction: (option: string) => Date
   loading: boolean
   handleMessage: (titleLower: string, titleUpper: string) => string
 }
 
-export interface IsLoadingProps {
-  isLoading?: string
-}
-
-export interface IModal {
-  setModal: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export interface ICardProps {
+export interface CardProps {
   title: 'Income' | 'Expenses' | 'Total'
   value: number
   background?: 'bg-colorPrimary-2'

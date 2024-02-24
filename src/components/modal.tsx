@@ -63,10 +63,8 @@ export const Modal = () => {
       <Dialog.Trigger asChild>
         <Button
           type="button"
-          maxWidth="max-w-[9.188rem]"
+          className="h-[2.375rem] max-w-[8.125rem] bg-colorPrimary-1 p-0 text-white hover:border-colorPrimary-2 hover:bg-colorPrimary-2 sm:h-[3.125rem] sm:max-w-[9.188rem]"
           text="New transaction"
-          hoverBorder="hover:border-colorPrimary-2"
-          media="max-sm:h-[2.375rem] max-sm:p-0 max-sm:max-w-[8.125rem]"
         />
       </Dialog.Trigger>
 
@@ -149,8 +147,7 @@ export const Modal = () => {
             <Button
               type="submit"
               text="Register"
-              maxWidth="max-w-[27.438rem]"
-              hoverBorder="hover:border-colorPrimary-2"
+              className="h-[3.125rem] max-w-[27.438rem] bg-colorPrimary-1 text-white hover:border-colorPrimary-2 hover:bg-colorPrimary-2"
             />
           </form>
         </Dialog.Content>

@@ -36,17 +36,10 @@ export const Search = () => {
         />
         <Button
           text="Search"
-          height="h-[3.375rem]"
-          isSearch={true}
-          maxWidth="max-w-[9.188rem]"
-          background="bg-grey-2"
-          color="text-colorPrimary-1"
-          active="active:bg-colorPrimary-4"
-          hoverBackground="hover:bg-colorPrimary-3"
-          mediaGrey="max-sm:max-w-[3.375rem] max-sm:p-0"
-          isGrey={true}
-          onClick={() => handleSearchTransactions(transaction)}
+          className="h-[3.375rem] max-w-[3.375rem] bg-grey-2 text-colorPrimary-1 hover:bg-colorPrimary-3 sm:max-w-[9.188rem]"
+          isSearch
           ariaLabel="search"
+          onClick={() => handleSearchTransactions(transaction)}
         />
       </div>
     </div>

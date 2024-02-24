@@ -1,7 +1,7 @@
 'use client'
 
 import { PropsWithChildren } from 'react'
-import { ICardProps } from '@/interfaces'
+import { CardProps } from '@/interfaces'
 import { cn } from '@/utils/cn'
 
 export const Card = ({
@@ -10,7 +10,7 @@ export const Card = ({
   background,
   message,
   children,
-}: PropsWithChildren<ICardProps>) => {
+}: PropsWithChildren<CardProps>) => {
   return (
     <div
       className={cn(
