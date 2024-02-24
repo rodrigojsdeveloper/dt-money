@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
-import { Card } from './Card'
+import { Card } from './card-1'
 import { ArrowDownCircle, ArrowUpCircle, CircleDollarSign } from 'lucide-react'
 
 export const Navigation = () => {

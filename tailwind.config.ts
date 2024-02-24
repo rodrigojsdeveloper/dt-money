@@ -28,7 +28,6 @@ const config: Config = {
           7: '#C4C4CC',
           8: '#E1E1E6',
         },
-        white: '#FFFFFF',
         red: {
           1: '#F75A68',
           2: 'rgb(247, 90, 104, 0.16)',
@@ -45,17 +44,35 @@ const config: Config = {
         default: '0 0.25rem 2rem 0 #00000080',
       },
       keyframes: {
-        form: {
-          from: { opacity: '0', transform: 'translatey(-3.125rem)' },
+        slideDownAndFade: {
+          from: { opacity: '0', transform: 'translateY(-0.125rem)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideLeftAndFade: {
+          from: { opacity: '0', transform: 'translateX(0.125rem)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideUpAndFade: {
+          from: { opacity: '0', transform: 'translateY(0.125rem)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideRightAndFade: {
+          from: { opacity: '0', transform: 'translateX(-0.125rem)' },
           to: { opacity: '1', transform: 'translateX(0)' },
         },
       },
       animation: {
-        form: 'form 1s',
+        slideDownAndFade:
+          'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideLeftAndFade:
+          'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideRightAndFade:
+          'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
 
 export default config

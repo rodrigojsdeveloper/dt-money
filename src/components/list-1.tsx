@@ -2,10 +2,10 @@
 
 import { useContext, useEffect } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
-import ModalBackground from './ModalBackground'
+import ModalBackground from './modal-background'
 import { MessageEmpty } from './message-empty'
-import { Transaction } from './Transaction'
-import { Loading } from './Loading'
+import { Transaction } from './transaction-1'
+import { Loading } from './loading-1'
 import { cn } from '@/utils/cn'
 
 const List = () => {
