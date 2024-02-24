@@ -57,7 +57,7 @@ const Modal = ({ setModal }: IModal) => {
   }
 
   return (
-    <div className="h-528 w-full max-w-535 animate-form rounded-def bg-grey-2 px-12 py-10 shadow-default max-sm:fixed max-sm:h-478 max-sm:max-w-none max-sm:animate-formMobile max-sm:rounded-t-20 max-sm:px-5 max-sm:py-7">
+    <div className="w-full max-w-535 animate-form rounded-def bg-grey-2 px-5 py-7 shadow-default sm:px-12 sm:py-10">
       <div className="m-auto flex w-full max-w-439 justify-end">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -90,11 +90,11 @@ const Modal = ({ setModal }: IModal) => {
           onSubmitFunction()
         }}
       >
-        <h2 className="mb-8 text-2xl font-bold text-grey-8 max-sm:mb-5">
+        <h2 className="mb-5 text-2xl font-bold text-grey-8 sm:mb-8">
           New transaction
         </h2>
 
-        <div className="flex h-194 w-full flex-col justify-between max-sm:h-186">
+        <div className="flex h-186 w-full flex-col justify-between sm:h-194">
           <Input
             name="description"
             value={formData.description}
@@ -116,12 +116,11 @@ const Modal = ({ setModal }: IModal) => {
           />
         </div>
 
-        <div className="mb-10 mt-6 flex w-full flex-row items-center justify-between">
+        <div className="mb-10 mt-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
           <button
             type="button"
-            className={`flex h-58 w-full max-w-211 items-center justify-center ${
-              prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
-            } mr-4 rounded-def`}
+            className={`flex h-58 w-full items-center justify-center sm:max-w-211 ${prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
+              } rounded-def`}
             onClick={() => {
               setOption('Income')
               setProhibited(true)
@@ -160,9 +159,8 @@ const Modal = ({ setModal }: IModal) => {
 
           <button
             type="button"
-            className={`flex h-58 w-full max-w-211 items-center justify-center ${
-              exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
-            } rounded-def`}
+            className={`flex h-58 w-full items-center justify-center sm:max-w-211 ${exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
+              } rounded-def`}
             onClick={() => {
               setOption('Expenses')
               setProhibited(false)
