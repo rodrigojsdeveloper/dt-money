@@ -1,10 +1,11 @@
 'use client'
-import ModalBackground from './ModalBackground'
-import { useState } from 'react'
-import Button from './Button'
-import Modal from './Modal'
 
-const Header = () => {
+import { useState } from 'react'
+import ModalBackground from './ModalBackground'
+import { Button } from './Button'
+import { Modal } from './Modal'
+
+export const Header = () => {
   const [modal, setModal] = useState<boolean>(false)
 
   return (
@@ -108,5 +109,3 @@ const Header = () => {
     </>
   )
 }
-
-export default Header

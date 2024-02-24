@@ -23,7 +23,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <head>
         <link rel="icon" href="/favicon.svg" type="image/x-icon" />
       </head>
-      <body className={cn('font-roboto', roboto.variable)}>
+      <body className={cn('font-roboto antialiased', roboto.variable)}>
         <Providers>{children}</Providers>
       </body>
     </html>

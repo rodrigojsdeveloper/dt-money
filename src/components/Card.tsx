@@ -1,9 +1,10 @@
 'use client'
+
+import { PropsWithChildren } from 'react'
 import { ICardProps } from '@/interfaces'
 import { cn } from '@/utils/cn'
-import { PropsWithChildren } from 'react'
 
-const Card = ({
+export const Card = ({
   title,
   value,
   background,
@@ -30,5 +31,3 @@ const Card = ({
     </div>
   )
 }
-
-export default Card

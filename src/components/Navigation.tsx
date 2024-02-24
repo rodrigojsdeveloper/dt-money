@@ -1,9 +1,10 @@
 'use client'
-import { TransactionContext } from '@/contexts/transaction.context'
-import { useContext } from 'react'
-import Card from './Card'
 
-const Navigation = () => {
+import { useContext } from 'react'
+import { TransactionContext } from '@/contexts/transaction.context'
+import { Card } from './Card'
+
+export const Navigation = () => {
   const { total, totalIncome, totalExpenses, handleMessage } =
     useContext(TransactionContext)
 
@@ -103,5 +104,3 @@ const Navigation = () => {
     </div>
   )
 }
-
-export default Navigation

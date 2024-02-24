@@ -1,10 +1,11 @@
 'use client'
-import { TransactionContext } from '@/contexts/transaction.context'
-import { useContext, useState } from 'react'
-import Button from './Button'
-import Input from './Input'
 
-const Search = () => {
+import { useContext, useState } from 'react'
+import { TransactionContext } from '@/contexts/transaction.context'
+import { Button } from './Button'
+import { Input } from './Input'
+
+export const Search = () => {
   const { filteredTransactions, handleSearchTransactions } =
     useContext(TransactionContext)
 
@@ -51,5 +52,3 @@ const Search = () => {
     </div>
   )
 }
-
-export default Search

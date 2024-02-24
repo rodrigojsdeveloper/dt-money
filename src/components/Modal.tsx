@@ -1,15 +1,15 @@
 import { TransactionContext } from '@/contexts/transaction.context'
-import transactionSchema from '@/schemas/transaction.schema'
+import { transactionSchema } from '@/schemas/transaction.schema'
 import { useContext, useState } from 'react'
 import { IModal } from '@/interfaces'
-import Button from './Button'
-import Input from './Input'
+import { Button } from './Button'
+import { Input } from './Input'
 import * as zod from 'zod'
 import { cn } from '@/utils/cn'
 
 type FormData = zod.infer<typeof transactionSchema>
 
-const Modal = ({ setModal }: IModal) => {
+export const Modal = ({ setModal }: IModal) => {
   const { addTransaction } = useContext(TransactionContext)
 
   const [option, setOption] = useState<string>('')
@@ -213,5 +213,3 @@ const Modal = ({ setModal }: IModal) => {
     </div>
   )
 }
-
-export default Modal

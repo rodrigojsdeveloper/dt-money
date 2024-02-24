@@ -1,7 +1,7 @@
 import { IButtonProps } from '@/interfaces'
 import { cn } from '@/utils/cn'
 
-const Button = ({
+export const Button = ({
   isSearch,
   text,
   type,
@@ -64,5 +64,3 @@ const Button = ({
     </button>
   )
 }
-
-export default Button

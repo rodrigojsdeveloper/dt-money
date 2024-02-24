@@ -2,7 +2,7 @@ import { formatDate } from '@/utils/format-date'
 import { ITransaction } from '@/interfaces'
 import { cn } from '@/utils/cn'
 
-const Transaction = ({ transaction }: ITransaction) => {
+export const Transaction = ({ transaction }: ITransaction) => {
   return (
     <div className="mb-3 flex h-[8.75rem] w-full max-w-[69.988rem] flex-col items-center justify-between rounded-def bg-grey-3 px-5 py-5 sm:mb-2 sm:h-[4.125rem] sm:flex-row sm:px-8">
       <div className="flex w-full flex-col gap-y-1.5 sm:flex-row sm:gap-0">
@@ -24,7 +24,7 @@ const Transaction = ({ transaction }: ITransaction) => {
       </div>
 
       <div className="flex w-full flex-row items-center justify-between sm:max-w-[20.75rem]">
-        <p className="max-w-60 flex w-full items-center gap-0 gap-x-1 text-base font-normal text-grey-5">
+        <p className="flex w-full max-w-60 items-center gap-0 gap-x-1 text-base font-normal text-grey-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -82,5 +82,3 @@ const Transaction = ({ transaction }: ITransaction) => {
     </div>
   )
 }
-
-export default Transaction

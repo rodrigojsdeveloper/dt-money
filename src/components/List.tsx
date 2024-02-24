@@ -1,10 +1,11 @@
 'use client'
+
+import { useContext, useEffect } from 'react'
 import { TransactionContext } from '@/contexts/transaction.context'
 import ModalBackground from './ModalBackground'
-import { useContext, useEffect } from 'react'
-import MessageEmpty from './MessageEmpty'
-import Transaction from './Transaction'
-import Loading from './Loading'
+import { MessageEmpty } from './message-empty'
+import { Transaction } from './Transaction'
+import { Loading } from './Loading'
 import { cn } from '@/utils/cn'
 
 const List = () => {
@@ -98,7 +99,7 @@ const List = () => {
           <span
             key={index}
             className={cn(
-              'max-w-10 mx-1 flex h-10 w-full items-center justify-center rounded-def text-base font-bold',
+              'mx-1 flex h-10 w-full max-w-10 items-center justify-center rounded-def text-base font-bold',
               currentPage === index
                 ? 'bg-colorPrimary-1 text-white'
                 : 'bg-grey-4 text-grey-6',

@@ -1,6 +1,6 @@
 import z from 'zod'
 
-const transactionSchema = z.object({
+export const transactionSchema = z.object({
   id: z.string(),
   description: z.string(),
   price: z.string(),
@@ -8,5 +8,3 @@ const transactionSchema = z.object({
   option: z.enum(['Income', 'Expenses']).optional(),
   created_at: z.date(),
 })
-
-export default transactionSchema

@@ -1,11 +1,12 @@
 'use client'
+
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { ITransactionProps, ITransactionContextData } from '../interfaces'
 import { formatLastDate } from '@/utils/format-date'
 
-const TransactionContext = createContext({} as ITransactionContextData)
+export const TransactionContext = createContext({} as ITransactionContextData)
 
-const TransactionContextProvider = ({ children }: PropsWithChildren) => {
+export const TransactionContextProvider = ({ children }: PropsWithChildren) => {
   const [transactions, setTransactions] = useState<ITransactionProps[]>([])
 
   const [filteredTransactions, setFilteredTransactions] = useState<
@@ -141,5 +142,3 @@ const TransactionContextProvider = ({ children }: PropsWithChildren) => {
     </TransactionContext.Provider>
   )
 }
-
-export { TransactionContext, TransactionContextProvider }
