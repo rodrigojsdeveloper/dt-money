@@ -1,5 +1,6 @@
-import { formatDate } from '@/utils/formatDate'
+import { formatDate } from '@/utils/format-date'
 import { ITransaction } from '@/interfaces'
+import { cn } from '@/utils/cn'
 
 const Transaction = ({ transaction }: ITransaction) => {
   return (
@@ -9,10 +10,12 @@ const Transaction = ({ transaction }: ITransaction) => {
           {transaction.description}
         </h2>
         <p
-          className={`flex w-full min-w-[6.25rem] max-w-[12.5rem] items-center text-base font-normal ${transaction.option === 'Expenses'
+          className={cn(
+            'flex w-full min-w-[6.25rem] max-w-[12.5rem] items-center text-base font-normal max-sm:text-xl max-sm:font-bold',
+            transaction.option === 'Expenses'
               ? 'text-red-1'
-              : 'text-colorPrimary-1'
-            } max-sm:text-xl max-sm:font-bold`}
+              : 'text-colorPrimary-1',
+          )}
         >
           {transaction.option === 'Expenses'
             ? `- R$ ${transaction.price}`

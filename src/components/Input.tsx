@@ -1,4 +1,5 @@
 import { InputProps } from '@/interfaces'
+import { cn } from '@/utils/cn'
 
 const Input = ({
   placeholder,
@@ -13,9 +14,10 @@ const Input = ({
       type={type}
       name={name}
       placeholder={placeholder}
-      className={`h-[3.375rem] w-full max-w-[59.813rem] rounded-def bg-grey-1 p-4 ${
-        margin || ''
-      } placeholder:text-normal border border-solid border-grey-1 placeholder:text-base placeholder:text-grey-5 focus:border-colorPrimary-1 focus:placeholder:text-transparent`}
+      className={cn(
+        'placeholder:text-normal h-[3.375rem] w-full max-w-[59.813rem] rounded-def border border-solid border-grey-1 bg-grey-1 p-4 placeholder:text-base placeholder:text-grey-5 focus:border-colorPrimary-1 focus:placeholder:text-transparent',
+        margin || '',
+      )}
       required={true}
       autoComplete="off"
       onChange={onChange}

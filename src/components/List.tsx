@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react'
 import MessageEmpty from './MessageEmpty'
 import Transaction from './Transaction'
 import Loading from './Loading'
+import { cn } from '@/utils/cn'
 
 const List = () => {
   const {
@@ -96,10 +97,12 @@ const List = () => {
         {currentPageSpans.map((index) => (
           <span
             key={index}
-            className={`max-w-10 flex h-10 w-full items-center justify-center ${currentPage === index
+            className={cn(
+              'max-w-10 mx-1 flex h-10 w-full items-center justify-center rounded-def text-base font-bold',
+              currentPage === index
                 ? 'bg-colorPrimary-1 text-white'
-                : 'bg-grey-4 text-grey-6'
-              }  mx-1 rounded-def text-base font-bold`}
+                : 'bg-grey-4 text-grey-6',
+            )}
           >
             {index}
           </span>

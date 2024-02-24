@@ -1,12 +1,12 @@
-@import 'tailwind/base';
-@import 'tailwind/components';
-@import 'tailwind/utilities';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 * {
   border: 0;
   margin: 0;
   padding: 0;
-  outline: 0;
+  outline: 0 !important;
   resize: none;
   box-sizing: border-box;
   scroll-behavior: smooth;

@@ -5,6 +5,7 @@ import { IModal } from '@/interfaces'
 import Button from './Button'
 import Input from './Input'
 import * as zod from 'zod'
+import { cn } from '@/utils/cn'
 
 type FormData = zod.infer<typeof transactionSchema>
 
@@ -119,8 +120,10 @@ const Modal = ({ setModal }: IModal) => {
         <div className="mb-10 mt-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
           <button
             type="button"
-            className={`flex h-[3.625rem] w-full items-center justify-center sm:max-w-[13.219rem] ${prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4'
-              } rounded-def`}
+            className={cn(
+              'flex h-[3.625rem] w-full items-center justify-center rounded-def sm:max-w-[13.219rem]',
+              prohibited ? 'bg-colorPrimary-4' : 'bg-grey-3 hover:bg-grey-4',
+            )}
             onClick={() => {
               setOption('Income')
               setProhibited(true)
@@ -159,8 +162,10 @@ const Modal = ({ setModal }: IModal) => {
 
           <button
             type="button"
-            className={`flex h-[3.625rem] w-full items-center justify-center sm:max-w-[13.219rem] ${exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4'
-              } rounded-def`}
+            className={cn(
+              'flex h-[3.625rem] w-full items-center justify-center rounded-def sm:max-w-[13.219rem]',
+              exit ? 'bg-red-2' : 'bg-grey-3 hover:bg-grey-4',
+            )}
             onClick={() => {
               setOption('Expenses')
               setProhibited(false)

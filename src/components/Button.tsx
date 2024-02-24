@@ -1,4 +1,5 @@
 import { IButtonProps } from '@/interfaces'
+import { cn } from '@/utils/cn'
 
 const Button = ({
   isSearch,
@@ -22,15 +23,18 @@ const Button = ({
       type={type}
       onClick={onClick}
       aria-label={ariaLabel}
-      className={`w-full ${maxWidth || 'max-w-none'} ${
-        height || 'h-[3.125rem]'
-      } flex items-center justify-center ${
-        background || 'bg-colorPrimary-1'
-      } border border-solid border-colorPrimary-1 text-sm font-bold ${
-        color || 'text-white'
-      } rounded-def p-3 ${hoverBackground || 'hover:bg-colorPrimary-2'} ${
-        hoverBorder || ''
-      } ${active || ''} ${media || ''} ${mediaGrey || ''}`}
+      className={cn(
+        'flex w-full items-center justify-center rounded-def border border-solid border-colorPrimary-1 p-3 text-sm font-bold',
+        maxWidth || 'max-w-none',
+        height || 'h-[3.125rem]',
+        background || 'bg-colorPrimary-1',
+        color || 'text-white',
+        hoverBackground || 'hover:bg-colorPrimary-2',
+        hoverBorder || '',
+        active || '',
+        media || '',
+        mediaGrey || '',
+      )}
     >
       {isSearch ? (
         <svg
@@ -56,7 +60,7 @@ const Button = ({
         </svg>
       ) : null}
 
-      <p className={`${isGrey ? 'max-sm:hidden' : ''}`}>{text}</p>
+      <p className={cn(isGrey ? 'max-sm:hidden' : '')}>{text}</p>
     </button>
   )
 }

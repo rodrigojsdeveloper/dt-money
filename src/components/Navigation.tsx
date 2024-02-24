@@ -1,6 +1,6 @@
 'use client'
 import { TransactionContext } from '@/contexts/transaction.context'
-import { formatLastDate } from '@/utils/formatDate'
+import { formatLastDate } from '@/utils/format-date'
 import { useContext } from 'react'
 import Card from './Card'
 
@@ -16,8 +16,8 @@ const Navigation = () => {
         message={
           handleLastTransaction('Income')
             ? `Last income in ${formatLastDate(
-                String(handleLastTransaction('Income')),
-              )}`
+              String(handleLastTransaction('Income')),
+            )}`
             : ''
         }
       >
@@ -54,8 +54,8 @@ const Navigation = () => {
         message={
           handleLastTransaction('Expenses')
             ? `Last expense in ${formatLastDate(
-                String(handleLastTransaction('Expenses')),
-              )}`
+              String(handleLastTransaction('Expenses')),
+            )}`
             : ''
         }
       >
@@ -93,8 +93,8 @@ const Navigation = () => {
         message={
           handleLastTransaction('Total')
             ? `Last transaction on ${formatLastDate(
-                String(handleLastTransaction('Total')),
-              )}`
+              String(handleLastTransaction('Total')),
+            )}`
             : ''
         }
       >

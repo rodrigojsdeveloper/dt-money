@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 import type { Metadata } from 'next'
 import Providers from '@/contexts'
 import './globals.css'
+import { cn } from '@/utils/cn'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${roboto.variable} font-roboto`}>
+    <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/x-icon" />
       </head>
-      <body>
+      <body className={cn('font-roboto', roboto.variable)}>
         <Providers>{children}</Providers>
       </body>
     </html>
