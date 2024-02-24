@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react'
 import { Roboto } from 'next/font/google'
 import type { Metadata } from 'next'
 import Providers from '@/contexts'
-import './globals.css'
 import { cn } from '@/utils/cn'
+import './globals.css'
 
 const roboto = Roboto({
   subsets: ['latin'],
